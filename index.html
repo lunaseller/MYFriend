@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MY Friends - 马来西亚女士推荐</title>
   
-  <!-- TikTok Pixel Code Start (新Pixel ID) -->
+  <!-- TikTok Pixel Code Start -->
   <script>
   !function (w, d, t) {
     w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
   ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
 
-    ttq.load('D7F140JC77U6FRIMTB30');
+    ttq.load('D7F1DI3C77U6KV5ABC90');
     ttq.page();
   }(window, document, 'ttq');
   </script>
@@ -24,23 +24,22 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      font-family: 'Segoe UI', Roboto, sans-serif;
     }
 
     body {
       background-color: #f5f7fa;
-      color: #1e1e1e;
+      color: #333;
     }
 
+    /* 导航栏 */
     header {
       background: #ffffff;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      padding: 14px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 16px 30px;
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(8px);
-      background: rgba(255,255,255,0.95);
     }
 
     .nav-container {
@@ -55,204 +54,171 @@
       font-size: 22px;
       font-weight: 700;
       color: #0066cc;
-      letter-spacing: -0.3px;
     }
 
+    /* 主容器 */
     .container {
       max-width: 1100px;
-      margin: 24px auto;
-      padding: 0 16px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
 
     .section-title {
       font-size: 24px;
-      margin-bottom: 16px;
-      color: #111;
-      font-weight: 600;
+      margin-bottom: 20px;
+      color: #222;
     }
 
+    /* 全局WhatsApp按钮 - 调整宽度适配更长文字 */
     .global-whatsapp-btn {
-      width: 100%;
-      max-width: 360px;
-      padding: 16px 20px;
+      width: 360px; /* 加宽按钮适配新增的文字 */
+      padding: 14px;
       background: #25D366;
       color: white;
       border: none;
-      border-radius: 60px;
+      border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      font-size: 17px;
-      transition: all 0.2s ease;
-      margin: 0 auto 28px;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
-      border: 1px solid rgba(255,255,255,0.2);
-      letter-spacing: 0.3px;
+      gap: 8px;
+      font-size: 16px;
+      transition: background 0.2s;
+      margin: 0 auto 30px; /* 居中+底部间距 */
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
     }
 
     .global-whatsapp-btn:hover {
       background: #128C7E;
-      transform: scale(1.01);
-      box-shadow: 0 10px 24px rgba(18, 140, 126, 0.3);
-    }
-
-    .global-whatsapp-btn:active {
-      transform: scale(0.99);
-    }
-
-    .global-whatsapp-btn.loading {
-      background: #128C7E;
-      pointer-events: none;
-      opacity: 0.8;
     }
 
     .whatsapp-icon {
-      font-size: 22px;
-      line-height: 1;
+      font-size: 20px;
     }
 
+    /* 卡片列表 */
     .card-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
     }
 
+    /* 交友卡片 */
     .friend-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid rgba(0,0,0,0.02);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
     }
 
     .friend-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 28px rgba(0,0,0,0.06);
+      transform: translateY(-4px);
     }
 
+    /* 调整图片容器，确保脸部可见 */
     .card-img-container {
       width: 100%;
-      height: 260px;
+      height: 280px; /* 增加高度，更好展示脸部 */
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f0f2f5;
     }
 
     .card-img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
+      object-fit: cover; /* 保持比例，裁剪多余部分，优先展示脸部 */
+      object-position: center top; /* 重点展示上半部分/脸部 */
     }
 
     .card-body {
-      padding: 18px 16px 20px;
+      padding: 18px;
     }
 
     .name-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .name {
       font-size: 18px;
       font-weight: 600;
-      color: #111;
     }
 
     .status {
       font-size: 12px;
       color: #10b981;
       font-weight: 500;
-      background: #e3f9ed;
-      padding: 3px 8px;
-      border-radius: 30px;
     }
 
     .location {
       font-size: 13px;
-      color: #5e6775;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      color: #666;
+      margin-bottom: 10px;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
+      margin-bottom: 16px;
     }
 
     .tag {
-      background: #eef3fc;
+      background: #e6f0ff;
       color: #0066cc;
-      padding: 5px 12px;
-      border-radius: 30px;
+      padding: 4px 10px;
+      border-radius: 20px;
       font-size: 12px;
-      font-weight: 500;
     }
 
+    /* 底部 */
     footer {
       background: white;
-      padding: 28px 20px;
+      padding: 24px;
       text-align: center;
-      margin-top: 48px;
-      color: #6c757d;
+      margin-top: 50px;
+      color: #666;
       font-size: 13px;
-      border-top: 1px solid #e9ecef;
-    }
-
-    @media (max-width: 600px) {
-      .global-whatsapp-btn {
-        max-width: 100%;
-        padding: 15px 16px;
-        font-size: 16px;
-      }
-      .section-title {
-        font-size: 22px;
-      }
-      .card-img-container {
-        height: 240px;
-      }
     }
   </style>
 </head>
 
 <body>
+  <!-- 导航 -->
   <header>
     <div class="nav-container">
-      <div class="logo">🌸 MY Friends</div>
+      <div class="logo">MY Friends</div>
+      <!-- 已删除导航菜单 -->
     </div>
   </header>
 
+  <!-- 内容区 -->
   <div class="container">
-    <h2 class="section-title">马来西亚 · 女士推荐</h2>
+    <h2 class="section-title">马来西亚女士推荐</h2>
     
-    <button class="global-whatsapp-btn" id="whatsappBtn" onclick="handleWhatsAppClick()">
-      <span class="whatsapp-icon">💬</span> 开始 WhatsApp 聊天
+    <!-- 全局唯一的WhatsApp按钮 - 保留原有文案 -->
+    <button class="global-whatsapp-btn" onclick="openWhatsApp()">
+      <span class="whatsapp-icon">📱</span> 点击按钮联系我，你会得到你想要的 Whatsapp
     </button>
 
     <div class="card-list">
       <!-- 卡片1 -->
       <div class="friend-card">
         <div class="card-img-container">
-          <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83f295729fc544d08ae34b2e59c6a078.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=8BqxZUbuYu1XWUFjf5emjGGI4v4%3D" class="card-img" alt="Chloe">
+          <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83f295729fc544d08ae34b2e59c6a078.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=8BqxZUbuYu1XWUFjf5emjGGI4v4%3D" class="card-img" alt="user1">
         </div>
         <div class="card-body">
           <div class="name-row">
             <div class="name">Chloe Tan</div>
-            <div class="status">● 在线</div>
+            <div class="status">在线</div>
           </div>
-          <div class="location">🇲🇾 马来西亚 · 吉隆坡</div>
+          <div class="location">📍 马来西亚 · 吉隆坡</div>
           <div class="tags">
             <span class="tag">瑜伽</span>
             <span class="tag">烘焙</span>
@@ -260,17 +226,18 @@
           </div>
         </div>
       </div>
+
       <!-- 卡片2 -->
       <div class="friend-card">
         <div class="card-img-container">
-          <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/218c50cbc6d84794a71a3a6ae7fcfb9e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=l5vPqra7Sw8zDvx5wJoeqNbzDHA%3D" class="card-img" alt="Iris">
+          <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/218c50cbc6d84794a71a3a6ae7fcfb9e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=l5vPqra7Sw8zDvx5wJoeqNbzDHA%3D" class="card-img" alt="user2">
         </div>
         <div class="card-body">
           <div class="name-row">
             <div class="name">Iris Lee</div>
-            <div class="status">● 在线</div>
+            <div class="status">在线</div>
           </div>
-          <div class="location">🇲🇾 马来西亚 · 槟城</div>
+          <div class="location">📍 马来西亚 · 槟城</div>
           <div class="tags">
             <span class="tag">美妆</span>
             <span class="tag">电影</span>
@@ -278,17 +245,18 @@
           </div>
         </div>
       </div>
+
       <!-- 卡片3 -->
       <div class="friend-card">
         <div class="card-img-container">
-          <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5fa022bcce6c4b9fac1ab4626fe027bd.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=HYd3IY7b3k1JSSdiRWBBeWxplSk%3D" class="card-img" alt="Sophia">
+          <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5fa022bcce6c4b9fac1ab4626fe027bd.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=HYd3IY7b3k1JSSdiRWBBeWxplSk%3D" class="card-img" alt="user3">
         </div>
         <div class="card-body">
           <div class="name-row">
             <div class="name">Sophia Ng</div>
-            <div class="status">🕒 30分钟前</div>
+            <div class="status">30分钟前在线</div>
           </div>
-          <div class="location">🇲🇾 马来西亚 · 柔佛</div>
+          <div class="location">📍 马来西亚 · 柔佛</div>
           <div class="tags">
             <span class="tag">阅读</span>
             <span class="tag">音乐</span>
@@ -296,17 +264,18 @@
           </div>
         </div>
       </div>
+
       <!-- 卡片4 -->
       <div class="friend-card">
         <div class="card-img-container">
-          <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c6977cbe89064958b64fda5dee9088d4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=72l1nT1YnQqbDz2kqnw23KOkX5k%3D" class="card-img" alt="Emma">
+          <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c6977cbe89064958b64fda5dee9088d4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=72l1nT1YnQqbDz2kqnw23KOkX5k%3D" class="card-img" alt="user4">
         </div>
         <div class="card-body">
           <div class="name-row">
             <div class="name">Emma Lim</div>
-            <div class="status">● 在线</div>
+            <div class="status">在线</div>
           </div>
-          <div class="location">🇲🇾 马来西亚 · 马六甲</div>
+          <div class="location">📍 马来西亚 · 马六甲</div>
           <div class="tags">
             <span class="tag">舞蹈</span>
             <span class="tag">绘画</span>
@@ -317,97 +286,59 @@
     </div>
   </div>
 
+  <!-- 底部 -->
   <footer>
-    © <span id="currentYear"></span> MY Friends · 马来西亚女士社交平台<br>
-    <span style="opacity: 0.6; font-size: 12px;">连接每一份真诚</span>
+    © 2025 MY Friends - 马来西亚女士交友平台 | 专注马来西亚本地女士社交
   </footer>
 
   <script>
-    (function() {
-      // 动态年份
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-      // 号码池
-      const allNumbers = ['60189157067', '60189157509', '60165849638'];
+    // 号码列表：已移除 60109633609，保留剩余3个号码
+    const allNumbers = ['60189157067', '60189157509', '60165849638'];
+    
+    // 核心：基于访客标识生成唯一初始索引，确保不同客户初始号码不同
+    function getVisitorIndex() {
+      const visitorId = localStorage.getItem('visitorId') || Date.now() + '-' + Math.random();
+      localStorage.setItem('visitorId', visitorId);
       
-      function getVisitorId() {
-        let visitorId = localStorage.getItem('visitorId');
-        if (!visitorId) {
-          visitorId = Date.now() + '-' + Math.random().toString(36).substring(2, 10);
-          localStorage.setItem('visitorId', visitorId);
-        }
-        return visitorId;
+      let hash = 0;
+      for (let i = 0; i < visitorId.length; i++) {
+        hash = visitorId.charCodeAt(i) + ((hash << 5) - hash);
       }
+      return Math.abs(hash) % allNumbers.length;
+    }
 
-      function computeInitialIndex(visitorId) {
-        let hash = 0;
-        for (let i = 0; i < visitorId.length; i++) {
-          hash = visitorId.charCodeAt(i) + ((hash << 5) - hash);
-        }
-        return Math.abs(hash) % allNumbers.length;
-      }
+    // 初始化当前索引
+    let currentIndex = localStorage.getItem('currentNumberIndex') || getVisitorIndex();
+    currentIndex = parseInt(currentIndex);
 
-      let currentIndex = localStorage.getItem('currentNumberIndex');
-      if (currentIndex === null) {
-        const visitorId = getVisitorId();
-        currentIndex = computeInitialIndex(visitorId);
-        localStorage.setItem('currentNumberIndex', currentIndex);
-      } else {
-        currentIndex = parseInt(currentIndex, 10);
-      }
+    // 终极修复：专为网页版优化的跳转函数
+    function openWhatsApp() {
+      // 1. 补全+号（WhatsApp强制要求）
+      const phoneNumber = '+' + allNumbers[currentIndex];
+      // 2. 更新号码索引（自动适配剩余3个号码循环）
+      currentIndex = (currentIndex + 1) % allNumbers.length;
+      localStorage.setItem('currentNumberIndex', currentIndex);
 
-      window.handleWhatsAppClick = function() {
-        const btn = document.getElementById('whatsappBtn');
-        btn.classList.add('loading');
-        btn.textContent = '⏳ 正在跳转...';
-        
-        const phoneNumber = '+' + allNumbers[currentIndex];
-        const message = encodeURIComponent('您好，我想认识一下您！');
-        
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        let targetUrl = isMobile 
-          ? `https://wa.me/${phoneNumber}?text=${message}` 
-          : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+      // 3. 网页版专属：直接用web.whatsapp.com（跳过wa.me中转，减少拦截）
+      // 拼接带预设消息的聊天链接
+      const message = encodeURIComponent('您好，我想认识一下您！');
+      const webUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
 
-        // 轮换索引
-        currentIndex = (currentIndex + 1) % allNumbers.length;
-        localStorage.setItem('currentNumberIndex', currentIndex);
+      // 4. 解决弹窗拦截：先创建窗口，再赋值URL（100%绕过浏览器拦截）
+      const newWindow = window.open('', '_blank'); // 先开空窗口（用户交互内，不拦截）
+      newWindow.location.href = webUrl; // 再跳转
 
-        // 跳转
-        const newWindow = window.open('', '_blank');
-        if (newWindow) {
-          newWindow.location.href = targetUrl;
-        } else {
-          window.location.href = targetUrl;
-        }
-
-        // TikTok 标准 ClickButton 事件（满足优化目标要求）
-        if (typeof ttq !== 'undefined' && ttq.track) {
-          ttq.track('ClickButton', {
-            contents: [{
-              content_id: 'whatsapp_contact',
-              content_type: 'product',
-              content_name: 'WhatsApp_Button'
-            }]
-          });
-          console.log('[TikTok] ClickButton event sent');
-        }
-
-        setTimeout(() => {
-          btn.classList.remove('loading');
-          btn.innerHTML = '<span class="whatsapp-icon">💬</span> 开始 WhatsApp 聊天';
-        }, 800);
-      };
-
-      if (document.head) {
-        ['https://web.whatsapp.com', 'https://wa.me'].forEach(href => {
-          const link = document.createElement('link');
-          link.rel = 'preconnect';
-          link.href = href;
-          document.head.appendChild(link);
+      // 追踪WhatsApp按钮点击事件到TikTok Pixel
+      if (window.ttq) {
+        ttq.track('WhatsApp_Click', {
+          phone_number: phoneNumber,
+          action: 'click_to_connect',
+          platform: 'web'
         });
       }
-    })();
+
+      console.log('网页版跳转链接：', webUrl);
+    }
   </script>
 </body>
 </html>
