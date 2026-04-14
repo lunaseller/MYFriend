@@ -383,10 +383,16 @@
           window.location.href = targetUrl;
         }
 
-        // TikTok 自定义事件：仅回传点击动作
+        // TikTok 标准 ClickButton 事件（启用优化目标所必需）
         if (typeof ttq !== 'undefined' && ttq.track) {
-          ttq.track('ContactWhatsApp');
-          console.log('[TikTok] ContactWhatsApp event sent');
+          ttq.track('ClickButton', {
+            contents: [{
+              content_id: 'whatsapp_contact',
+              content_type: 'product',
+              content_name: 'WhatsApp_Button'
+            }]
+          });
+          console.log('[TikTok] ClickButton event sent');
         }
 
         // 恢复按钮状态
