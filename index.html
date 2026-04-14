@@ -16,6 +16,29 @@
     ttq.load('D7F1N5RC77U751P3JF10');
     ttq.page();
   }(window, document, 'ttq');
+
+  // TikTok 自定义identify追踪代码（页面加载时执行）
+  // 注意：实际使用时需替换为真实的哈希后数据，以下为示例格式
+  ttq.identify({
+    "email": "<hashed_email_address>", // SHA-256哈希后的邮箱（示例占位符）
+    "phone_number": "<hashed_phone_number>", // SHA-256哈希后的手机号（示例占位符）
+    "external_id": "<hashed_external_id>" // SHA-256哈希后的外部ID（示例占位符）
+  });
+
+  // TikTok Contact事件追踪（页面加载完成后执行）
+  window.addEventListener('load', function() {
+    ttq.track('Contact', {
+      "contents": [
+        {
+          "content_id": "malaysia_friend_contact", // 自定义内容ID
+          "content_type": "product_group", // 内容类型
+          "content_name": "马来西亚女士交友联系" // 内容名称
+        }
+      ],
+      "value": 0, // 联系类事件无金额，设为0
+      "currency": "MYR" // 马来西亚林吉特（适配地区）
+    });
+  });
   </script>
   <!-- TikTok Pixel Code End -->
 
@@ -69,12 +92,12 @@
       color: #222;
     }
 
-    /* 全局WhatsApp按钮 - 调整宽度适配更长文字 */
+    /* 全局WhatsApp按钮 - 强制保持绿色样式，确保ClickButton关联按钮为绿色 */
     .global-whatsapp-btn {
-      width: 360px; /* 加宽按钮适配新增的文字 */
+      width: 360px;
       padding: 14px;
-      background: #25D366;
-      color: white;
+      background: #25D366 !important; /* 强制绿色，优先级最高 */
+      color: white !important;
       border: none;
       border-radius: 8px;
       font-weight: 600;
@@ -85,12 +108,12 @@
       gap: 8px;
       font-size: 16px;
       transition: background 0.2s;
-      margin: 0 auto 30px; /* 居中+底部间距 */
+      margin: 0 auto 30px;
       box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
     }
 
     .global-whatsapp-btn:hover {
-      background: #128C7E;
+      background: #128C7E !important; /* 悬停仍为深绿色 */
     }
 
     .whatsapp-icon {
@@ -120,7 +143,7 @@
     /* 调整图片容器，确保脸部可见 */
     .card-img-container {
       width: 100%;
-      height: 280px; /* 增加高度，更好展示脸部 */
+      height: 280px;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -130,8 +153,8 @@
     .card-img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* 保持比例，裁剪多余部分，优先展示脸部 */
-      object-position: center top; /* 重点展示上半部分/脸部 */
+      object-fit: cover;
+      object-position: center top;
     }
 
     .card-body {
@@ -202,7 +225,7 @@
   <div class="container">
     <h2 class="section-title">马来西亚女士推荐</h2>
     
-    <!-- 全局唯一的WhatsApp按钮 - 保留原有文案 -->
+    <!-- 全局唯一的WhatsApp按钮 - 绿色样式已强制锁定 -->
     <button class="global-whatsapp-btn" onclick="openWhatsApp()">
       <span class="whatsapp-icon">📱</span> 点击按钮联系我，你会得到你想要的 Whatsapp
     </button>
@@ -311,7 +334,7 @@
     let currentIndex = localStorage.getItem('currentNumberIndex') || getVisitorIndex();
     currentIndex = parseInt(currentIndex);
 
-    // 终极修复：专为网页版优化的跳转函数
+    // 终极修复：专为网页版优化的跳转函数 + TikTok ClickButton事件追踪
     function openWhatsApp() {
       // 1. 补全+号（WhatsApp强制要求）
       const phoneNumber = '+' + allNumbers[currentIndex];
@@ -328,12 +351,18 @@
       const newWindow = window.open('', '_blank'); // 先开空窗口（用户交互内，不拦截）
       newWindow.location.href = webUrl; // 再跳转
 
-      // 追踪WhatsApp按钮点击事件到TikTok Pixel
+      // 5. TikTok ClickButton事件追踪（按钮点击时触发）
       if (window.ttq) {
-        ttq.track('WhatsApp_Click', {
-          phone_number: phoneNumber,
-          action: 'click_to_connect',
-          platform: 'web'
+        ttq.track('ClickButton', {
+          "contents": [
+            {
+              "content_id": "whatsapp_contact_btn", // 按钮唯一标识
+              "content_type": "product_group", // 内容类型
+              "content_name": "WhatsApp联系按钮" // 按钮名称
+            }
+          ],
+          "value": 0, // 点击事件无金额，设为0
+          "currency": "MYR" // 马来西亚林吉特
         });
       }
 
