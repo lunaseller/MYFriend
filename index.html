@@ -12,7 +12,6 @@
   var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
   ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-
     ttq.load('D7F0E1RC77U3RPGVGRV0');
     ttq.page();
   }(window, document, 'ttq');
@@ -32,7 +31,6 @@
       color: #1e1e1e;
     }
 
-    /* 导航栏 */
     header {
       background: #ffffff;
       box-shadow: 0 2px 12px rgba(0,0,0,0.04);
@@ -59,7 +57,6 @@
       letter-spacing: -0.3px;
     }
 
-    /* 主容器 */
     .container {
       max-width: 1100px;
       margin: 24px auto;
@@ -73,7 +70,6 @@
       font-weight: 600;
     }
 
-    /* 全局WhatsApp按钮 */
     .global-whatsapp-btn {
       width: 100%;
       max-width: 360px;
@@ -117,14 +113,12 @@
       line-height: 1;
     }
 
-    /* 卡片列表 */
     .card-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 22px;
     }
 
-    /* 交友卡片 */
     .friend-card {
       background: white;
       border-radius: 20px;
@@ -206,7 +200,6 @@
       font-weight: 500;
     }
 
-    /* 底部 */
     footer {
       background: white;
       padding: 28px 20px;
@@ -234,27 +227,23 @@
 </head>
 
 <body>
-  <!-- 导航 -->
   <header>
     <div class="nav-container">
       <div class="logo">🌸 MY Friends</div>
     </div>
   </header>
 
-  <!-- 内容区 -->
   <div class="container">
     <h2 class="section-title">马来西亚 · 女士推荐</h2>
     
-    <!-- WhatsApp 按钮 -->
     <button class="global-whatsapp-btn" id="whatsappBtn" onclick="handleWhatsAppClick()">
       <span class="whatsapp-icon">💬</span> 开始 WhatsApp 聊天
     </button>
 
     <div class="card-list">
-      <!-- 卡片1 -->
+      <!-- 卡片 1 -->
       <div class="friend-card">
         <div class="card-img-container">
-          <!-- 图片链接时效性提醒：建议下载后替换为稳定图床 -->
           <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83f295729fc544d08ae34b2e59c6a078.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=8BqxZUbuYu1XWUFjf5emjGGI4v4%3D" class="card-img" alt="Chloe">
         </div>
         <div class="card-body">
@@ -270,8 +259,7 @@
           </div>
         </div>
       </div>
-
-      <!-- 卡片2 -->
+      <!-- 卡片 2 -->
       <div class="friend-card">
         <div class="card-img-container">
           <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/218c50cbc6d84794a71a3a6ae7fcfb9e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=l5vPqra7Sw8zDvx5wJoeqNbzDHA%3D" class="card-img" alt="Iris">
@@ -289,8 +277,7 @@
           </div>
         </div>
       </div>
-
-      <!-- 卡片3 -->
+      <!-- 卡片 3 -->
       <div class="friend-card">
         <div class="card-img-container">
           <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5fa022bcce6c4b9fac1ab4626fe027bd.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=HYd3IY7b3k1JSSdiRWBBeWxplSk%3D" class="card-img" alt="Sophia">
@@ -308,8 +295,7 @@
           </div>
         </div>
       </div>
-
-      <!-- 卡片4 -->
+      <!-- 卡片 4 -->
       <div class="friend-card">
         <div class="card-img-container">
           <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c6977cbe89064958b64fda5dee9088d4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=72l1nT1YnQqbDz2kqnw23KOkX5k%3D" class="card-img" alt="Emma">
@@ -330,7 +316,6 @@
     </div>
   </div>
 
-  <!-- 底部 -->
   <footer>
     © <span id="currentYear"></span> MY Friends · 马来西亚女士社交平台<br>
     <span style="opacity: 0.6; font-size: 12px;">连接每一份真诚</span>
@@ -338,12 +323,13 @@
 
   <script>
     (function() {
-      // ---------- 动态年份 ----------
+      // 动态年份
       document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-      // ---------- 号码轮询 ----------
+      // WhatsApp 号码池
       const allNumbers = ['60189157067', '60189157509', '60165849638'];
       
+      // 访客唯一标识 (用于固定初始号码)
       function getVisitorId() {
         let visitorId = localStorage.getItem('visitorId');
         if (!visitorId) {
@@ -370,29 +356,26 @@
         currentIndex = parseInt(currentIndex, 10);
       }
 
-      // ---------- WhatsApp 跳转（集成标准 ClickButton 事件）----------
+      // 点击跳转 WhatsApp
       window.handleWhatsAppClick = function() {
         const btn = document.getElementById('whatsappBtn');
-        
-        // 按钮加载状态
         btn.classList.add('loading');
         btn.textContent = '⏳ 正在跳转...';
         
         const phoneNumber = '+' + allNumbers[currentIndex];
         const message = encodeURIComponent('您好，我想认识一下您！');
         
-        // 设备检测
+        // 设备判断：移动端用 wa.me，桌面端用 WhatsApp Web
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
         let targetUrl = isMobile 
           ? `https://wa.me/${phoneNumber}?text=${message}` 
           : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
 
-        // 轮询索引
+        // 轮换到下一个号码
         currentIndex = (currentIndex + 1) % allNumbers.length;
         localStorage.setItem('currentNumberIndex', currentIndex);
 
-        // 跳转（防拦截）
+        // 跳转（防弹窗拦截）
         const newWindow = window.open('', '_blank');
         if (newWindow) {
           newWindow.location.href = targetUrl;
@@ -400,23 +383,13 @@
           window.location.href = targetUrl;
         }
 
-        // ---------- TikTok 标准事件：ClickButton ----------
+        // TikTok 自定义事件：仅回传点击动作
         if (typeof ttq !== 'undefined' && ttq.track) {
-          ttq.track('ClickButton', {
-            "contents": [
-              {
-                "content_id": "whatsapp_contact_001",
-                "content_type": "product",
-                "content_name": "WhatsApp Contact Button"
-              }
-            ],
-            "value": 0,
-            "currency": "MYR"
-          });
-          console.log('[TikTok] ClickButton event tracked.');
+          ttq.track('ContactWhatsApp');
+          console.log('[TikTok] ContactWhatsApp event sent');
         }
 
-        // 恢复按钮
+        // 恢复按钮状态
         setTimeout(() => {
           btn.classList.remove('loading');
           btn.innerHTML = '<span class="whatsapp-icon">💬</span> 开始 WhatsApp 聊天';
@@ -432,7 +405,6 @@
           document.head.appendChild(link);
         });
       }
-
     })();
   </script>
 </body>
