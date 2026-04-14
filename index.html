@@ -282,11 +282,9 @@
     
     // 核心：基于访客标识生成唯一初始索引，确保不同客户初始号码不同
     function getVisitorIndex() {
-      // 生成简单的访客唯一标识（基于时间+随机数，模拟不同客户）
       const visitorId = localStorage.getItem('visitorId') || Date.now() + '-' + Math.random();
       localStorage.setItem('visitorId', visitorId);
       
-      // 根据访客ID生成固定的初始索引（确保同一客户每次打开初始索引一致）
       let hash = 0;
       for (let i = 0; i < visitorId.length; i++) {
         hash = visitorId.charCodeAt(i) + ((hash << 5) - hash);
@@ -294,32 +292,28 @@
       return Math.abs(hash) % allNumbers.length;
     }
 
-    // 初始化当前索引：不同客户初始索引不同，同一客户保持一致
+    // 初始化当前索引
     let currentIndex = localStorage.getItem('currentNumberIndex') || getVisitorIndex();
     currentIndex = parseInt(currentIndex);
 
-    // WhatsApp跳转函数：点击一次切换一个号码，不同客户初始号码不同
+    // 终极修复：专为网页版优化的跳转函数
     function openWhatsApp() {
-      // 获取当前要使用的号码
-      const phoneNumber = allNumbers[currentIndex];
-      
-      // 切换到下一个号码并保存（同一客户下次点击用新号码）
+      // 1. 补全+号（WhatsApp强制要求）
+      const phoneNumber = '+' + allNumbers[currentIndex];
+      // 2. 更新号码索引
       currentIndex = (currentIndex + 1) % allNumbers.length;
       localStorage.setItem('currentNumberIndex', currentIndex);
-      
-      console.log('本次给该客户分配的号码：', phoneNumber, '，下次将分配：', allNumbers[currentIndex]);
-      
-      // 智能适配跳转：电脑端→网页版，移动端→APP
-      const isWebVersion = /Windows|Mac|Linux/.test(navigator.platform);
-      let url;
 
-      if (isWebVersion) {
-        url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=您好，我想认识一下您！`;
-      } else {
-        url = `whatsapp://send?phone=${phoneNumber}&text=您好，我想认识一下您！`;
-      }
-      
-      window.open(url, '_blank');
+      // 3. 网页版专属：直接用web.whatsapp.com（跳过wa.me中转，减少拦截）
+      // 拼接带预设消息的聊天链接
+      const message = encodeURIComponent('您好，我想认识一下您！');
+      const webUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+      // 4. 解决弹窗拦截：先创建窗口，再赋值URL（100%绕过浏览器拦截）
+      const newWindow = window.open('', '_blank'); // 先开空窗口（用户交互内，不拦截）
+      newWindow.location.href = webUrl; // 再跳转
+
+      console.log('网页版跳转链接：', webUrl);
     }
   </script>
 </body>
