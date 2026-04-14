@@ -277,8 +277,8 @@
   </footer>
 
   <script>
-    // 号码列表（保留原有马来西亚号码）
-    const allNumbers = ['60189157067', '60109633609', '60189157509', '60165849638'];
+    // 号码列表：已移除 60109633609，保留剩余3个号码
+    const allNumbers = ['60189157067', '60189157509', '60165849638'];
     
     // 核心：基于访客标识生成唯一初始索引，确保不同客户初始号码不同
     function getVisitorIndex() {
@@ -300,7 +300,7 @@
     function openWhatsApp() {
       // 1. 补全+号（WhatsApp强制要求）
       const phoneNumber = '+' + allNumbers[currentIndex];
-      // 2. 更新号码索引
+      // 2. 更新号码索引（自动适配剩余3个号码循环）
       currentIndex = (currentIndex + 1) % allNumbers.length;
       localStorage.setItem('currentNumberIndex', currentIndex);
 
