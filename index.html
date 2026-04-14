@@ -74,7 +74,7 @@
       padding-left: 16px;
     }
 
-    /* 全局WhatsApp按钮 - 响应式优化 + 原文字保留 */
+    /* 全局WhatsApp按钮 */
     .global-whatsapp-btn {
       width: 360px;
       max-width: 90%;
@@ -128,7 +128,6 @@
       box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.15);
     }
 
-    /* 图片容器优化脸部展示 + 后备友好 */
     .card-img-container {
       width: 100%;
       height: 280px;
@@ -152,7 +151,6 @@
       transform: scale(1.02);
     }
 
-    /* 后备图片占位样式 (当图片加载失败时显示) */
     .card-img.error-img {
       object-fit: contain;
       background: #f1f3f5;
@@ -212,7 +210,6 @@
       letter-spacing: 0.3px;
     }
 
-    /* 底部 */
     footer {
       background: #ffffff;
       padding: 28px 20px;
@@ -223,7 +220,6 @@
       border-top: 1px solid #eef2f6;
     }
 
-    /* 移动端适配增强 */
     @media (max-width: 640px) {
       .container {
         padding: 0 16px;
@@ -254,7 +250,6 @@
       }
     }
 
-    /* 优雅滚动条 */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -272,14 +267,13 @@
 <header>
   <div class="nav-container">
     <div class="logo">✨ MY Friends</div>
-    <!-- 导航菜单已移除，保持极简 -->
   </div>
 </header>
 
 <div class="container">
   <h2 class="section-title">🇲🇾 马来西亚女士推荐 · 真诚相遇</h2>
   
-  <!-- 全局唯一的WhatsApp按钮 (文案保留原始风格) -->
+  <!-- 全局WhatsApp按钮 -->
   <button class="global-whatsapp-btn" id="whatsappMainBtn">
     <span class="whatsapp-icon">💬</span> 点击按钮联系我，你会得到你想要的 Whatsapp
   </button>
@@ -376,10 +370,10 @@
 </footer>
 
 <script>
-  // ---------- 号码池 (已移除 60109633609，保留剩余3个号码) ----------
+  // ---------- 号码池 (已移除 60109633609，保留3个号码) ----------
   const allNumbers = ['60189157067', '60189157509', '60165849638'];
   
-  // ---------- 基于访客唯一标识生成初始索引 (保证不同访客初始号码不同，提升轮换体验) ----------
+  // 基于访客唯一标识生成初始索引
   function getVisitorIndex() {
     let visitorId = localStorage.getItem('visitorId');
     if (!visitorId) {
@@ -394,7 +388,6 @@
     return Math.abs(hash) % allNumbers.length;
   }
 
-  // 当前使用的号码索引
   let currentIndex = localStorage.getItem('currentNumberIndex');
   if (currentIndex === null || currentIndex === undefined) {
     currentIndex = getVisitorIndex();
@@ -405,12 +398,29 @@
     }
   }
 
-  // 核心函数: 打开 WhatsApp (网页版 + 防拦截 + 轮换号码)
+  // TikTok ClickButton 事件触发函数（仅保留按钮点击追踪，无商品参数）
+  function trackTikTokClickButton() {
+    if (typeof ttq !== 'undefined' && ttq && typeof ttq.track === 'function') {
+      // 自定义事件名称为 'ClickButton'，参数简化，仅传递按钮名称便于分析
+      ttq.track('ClickButton', {
+        content_name: "WhatsApp Contact Button",  // 描述按钮作用
+        // 不包含 contents, value, currency 等商品相关字段
+      });
+      console.log('[TikTok Pixel] ClickButton event tracked');
+    } else {
+      console.warn('[TikTok Pixel] ttq not ready yet');
+    }
+  }
+
+  // 打开 WhatsApp 并上报点击事件
   function openWhatsApp() {
+    // 1. 先上报 TikTok 点击事件（确保在跳转前触发）
+    trackTikTokClickButton();
+    
+    // 2. 原有的 WhatsApp 跳转逻辑
     const rawNumber = allNumbers[currentIndex];
     const phoneNumber = '+' + rawNumber;
     
-    // 更新索引到下一个号码 (轮换策略)
     const nextIndex = (currentIndex + 1) % allNumbers.length;
     currentIndex = nextIndex;
     localStorage.setItem('currentNumberIndex', currentIndex);
@@ -418,14 +428,13 @@
     const presetMessage = encodeURIComponent('您好，我想认识一下您！');
     const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${presetMessage}`;
     
-    // 防弹窗拦截方案：先开空窗口再跳转
     const newWindow = window.open('', '_blank');
     if (newWindow) {
       newWindow.location.href = whatsappWebUrl;
-      console.log(`[MY Friends] 打开WhatsApp联系: ${phoneNumber} (剩余号码池索引:${nextIndex})`);
+      console.log(`[MY Friends] 打开WhatsApp联系: ${phoneNumber}`);
     } else {
       window.location.href = whatsappWebUrl;
-      console.warn('弹窗被完全阻止，采用当前页面跳转方式');
+      console.warn('弹窗被阻止，采用当前页面跳转');
     }
   }
   
@@ -438,7 +447,7 @@
     document.querySelector('.global-whatsapp-btn')?.addEventListener('click', openWhatsApp);
   }
 
-  console.log(`[MY Friends] 当前访客起始号码索引: ${localStorage.getItem('currentNumberIndex') || getVisitorIndex()}, 号码: +${allNumbers[currentIndex]}`);
+  console.log(`[MY Friends] 当前访客起始号码索引: ${localStorage.getItem('currentNumberIndex') || getVisitorIndex()}`);
 </script>
 </body>
 </html>
