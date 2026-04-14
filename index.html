@@ -14,42 +14,7 @@
 
     ttq.load('D7F3F7BC77U6KV5ABFRG');
     ttq.page();
-
-    // ==============================================
-    // 你要求添加的 TikTok 高级事件代码（已集成）
-    // ==============================================
-    // PII 数据回传（已按广告投放规范填写）
-    ttq.identify({
-      "email": "",
-      "phone_number": "",
-      "external_id": ""
-    });
-
-    // 联系事件（核心转化）
-    ttq.track('Contact', {
-      "contents": [
-        {
-          "content_id": "malaysia_friends",
-          "content_type": "product",
-          "content_name": "马来西亚女士推荐"
-        }
-      ],
-      "value": 50,
-      "currency": "MYR"
-    });
-
-    // 按钮点击事件
-    ttq.track('ClickButton', {
-      "contents": [
-        {
-          "content_id": "whatsapp_button",
-          "content_type": "product",
-          "content_name": "WhatsApp联系按钮"
-        }
-      ],
-      "value": 10,
-      "currency": "MYR"
-    });
+  }(window, document, 'ttq');
   </script>
   <!-- TikTok Pixel Code End -->
 
@@ -215,7 +180,7 @@
 
     .status {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 60;
       background: #e6f9ef;
       padding: 4px 8px;
       border-radius: 30px;
