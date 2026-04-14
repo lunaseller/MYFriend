@@ -4,19 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>MY Friends - 马来西亚女士推荐 | 本地优质社交</title>
-  
-  <!-- TikTok Pixel Code Start -->
-  <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-    ttq.load('D7F1TI3C77U6FRIMTD1G');
-    ttq.page();
-  }(window, document, 'ttq');
-  </script>
-  <!-- TikTok Pixel Code End -->
-
   <style>
     * {
       margin: 0;
@@ -74,7 +61,7 @@
       padding-left: 16px;
     }
 
-    /* 全局WhatsApp按钮 */
+    /* 全局WhatsApp按钮 - 响应式优化 + 原文字保留 */
     .global-whatsapp-btn {
       width: 360px;
       max-width: 90%;
@@ -128,6 +115,7 @@
       box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.15);
     }
 
+    /* 图片容器优化脸部展示 + 后备友好 */
     .card-img-container {
       width: 100%;
       height: 280px;
@@ -151,6 +139,7 @@
       transform: scale(1.02);
     }
 
+    /* 后备图片占位样式 (当图片加载失败时显示) */
     .card-img.error-img {
       object-fit: contain;
       background: #f1f3f5;
@@ -165,8 +154,8 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      flex-wrap: wrap;
       margin-bottom: 8px;
+      flex-wrap: wrap;
     }
 
     .name {
@@ -210,6 +199,7 @@
       letter-spacing: 0.3px;
     }
 
+    /* 底部 */
     footer {
       background: #ffffff;
       padding: 28px 20px;
@@ -220,6 +210,7 @@
       border-top: 1px solid #eef2f6;
     }
 
+    /* 移动端适配增强 */
     @media (max-width: 640px) {
       .container {
         padding: 0 16px;
@@ -250,6 +241,7 @@
       }
     }
 
+    /* 优雅滚动条 */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -273,13 +265,11 @@
 <div class="container">
   <h2 class="section-title">🇲🇾 马来西亚女士推荐 · 真诚相遇</h2>
   
-  <!-- 全局WhatsApp按钮 -->
   <button class="global-whatsapp-btn" id="whatsappMainBtn">
     <span class="whatsapp-icon">💬</span> 点击按钮联系我，你会得到你想要的 Whatsapp
   </button>
 
   <div class="card-list">
-    <!-- 卡片1 - Chloe Tan -->
     <div class="friend-card">
       <div class="card-img-container">
         <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83f295729fc544d08ae34b2e59c6a078.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=8BqxZUbuYu1XWUFjf5emjGGI4v4%3D" 
@@ -300,7 +290,6 @@
       </div>
     </div>
 
-    <!-- 卡片2 - Iris Lee -->
     <div class="friend-card">
       <div class="card-img-container">
         <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/218c50cbc6d84794a71a3a6ae7fcfb9e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=l5vPqra7Sw8zDvx5wJoeqNbzDHA%3D" 
@@ -321,7 +310,6 @@
       </div>
     </div>
 
-    <!-- 卡片3 - Sophia Ng -->
     <div class="friend-card">
       <div class="card-img-container">
         <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5fa022bcce6c4b9fac1ab4626fe027bd.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=HYd3IY7b3k1JSSdiRWBBeWxplSk%3D" 
@@ -342,7 +330,6 @@
       </div>
     </div>
 
-    <!-- 卡片4 - Emma Lim -->
     <div class="friend-card">
       <div class="card-img-container">
         <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c6977cbe89064958b64fda5dee9088d4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=72l1nT1YnQqbDz2kqnw23KOkX5k%3D" 
@@ -370,10 +357,8 @@
 </footer>
 
 <script>
-  // ---------- 号码池 (已移除 60109633609，保留3个号码) ----------
   const allNumbers = ['60189157067', '60189157509', '60165849638'];
   
-  // 基于访客唯一标识生成初始索引
   function getVisitorIndex() {
     let visitorId = localStorage.getItem('visitorId');
     if (!visitorId) {
@@ -398,26 +383,7 @@
     }
   }
 
-  // TikTok ClickButton 事件触发函数（仅保留按钮点击追踪，无商品参数）
-  function trackTikTokClickButton() {
-    if (typeof ttq !== 'undefined' && ttq && typeof ttq.track === 'function') {
-      // 自定义事件名称为 'ClickButton'，参数简化，仅传递按钮名称便于分析
-      ttq.track('ClickButton', {
-        content_name: "WhatsApp Contact Button",  // 描述按钮作用
-        // 不包含 contents, value, currency 等商品相关字段
-      });
-      console.log('[TikTok Pixel] ClickButton event tracked');
-    } else {
-      console.warn('[TikTok Pixel] ttq not ready yet');
-    }
-  }
-
-  // 打开 WhatsApp 并上报点击事件
   function openWhatsApp() {
-    // 1. 先上报 TikTok 点击事件（确保在跳转前触发）
-    trackTikTokClickButton();
-    
-    // 2. 原有的 WhatsApp 跳转逻辑
     const rawNumber = allNumbers[currentIndex];
     const phoneNumber = '+' + rawNumber;
     
@@ -434,11 +400,9 @@
       console.log(`[MY Friends] 打开WhatsApp联系: ${phoneNumber}`);
     } else {
       window.location.href = whatsappWebUrl;
-      console.warn('弹窗被阻止，采用当前页面跳转');
     }
   }
   
-  // 绑定按钮事件
   const whatsappBtn = document.getElementById('whatsappMainBtn');
   if (whatsappBtn) {
     whatsappBtn.removeEventListener('click', openWhatsApp);
@@ -446,8 +410,21 @@
   } else {
     document.querySelector('.global-whatsapp-btn')?.addEventListener('click', openWhatsApp);
   }
-
-  console.log(`[MY Friends] 当前访客起始号码索引: ${localStorage.getItem('currentNumberIndex') || getVisitorIndex()}`);
 </script>
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+  ttq.load('D7F3F7BC77U6KV5ABFRG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
 </body>
 </html>
