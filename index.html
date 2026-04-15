@@ -287,9 +287,6 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
     <span class="whatsapp-icon">💬</span> 点击按钮联系我，你会得到你想要的 Whatsapp
   </button>
 
-  <!-- 联系按钮 -->
-  <button id="contactButton">联系</button>
-
   <div class="card-list">
     <div class="friend-card">
       <div class="card-img-container">
@@ -378,60 +375,13 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  const allNumbers = ['60189157067', '60189157509', '60165849638'];
-  
-  function getVisitorIndex() {
-    let visitorId = localStorage.getItem('visitorId');
-    if (!visitorId) {
-      visitorId = Date.now() + '-' + Math.random().toString(36).substring(2, 10);
-      localStorage.setItem('visitorId', visitorId);
-    }
-    let hash = 0;
-    for (let i = 0; i < visitorId.length; i++) {
-      hash = ((hash << 5) - hash) + visitorId.charCodeAt(i);
-      hash |= 0;
-    }
-    return Math.abs(hash) % allNumbers.length;
-  }
-
-  let currentIndex = localStorage.getItem('currentNumberIndex');
-  if (currentIndex === null || currentIndex === undefined) {
-    currentIndex = getVisitorIndex();
-  } else {
-    currentIndex = parseInt(currentIndex, 10);
-    if (isNaN(currentIndex) || currentIndex < 0 || currentIndex >= allNumbers.length) {
-      currentIndex = getVisitorIndex();
-    }
-  }
-
-  // 核心跳转函数（修复版，兼容手机+电脑）
+  // 一键直接跳转到WhatsApp聊天页面
   function openWhatsApp() {
-    const rawNumber = allNumbers[currentIndex];
-    const phoneNumber = '+' + rawNumber;
-    
-    const nextIndex = (currentIndex + 1) % allNumbers.length;
-    currentIndex = nextIndex;
-    localStorage.setItem('currentNumberIndex', currentIndex);
-    
-    const presetMessage = encodeURIComponent('您好，我想认识一下您！');
-    
-    // 优先唤起手机APP，失败自动跳网页版
-    const whatsappAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${presetMessage}`;
-    const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${presetMessage}`;
-    
-    window.open(whatsappAppUrl, '_blank');
-    
-    // 降级方案
-    setTimeout(() => {
-      window.open(whatsappWebUrl, '_blank');
-    }, 300);
+    window.open('https://wa.me/60189157067', '_blank');
   }
   
-  // 绑定绿色大按钮
-  document.getElementById('whatsappMainBtn').onclick = openWhatsApp;
-
-  // 绑定联系按钮
-  document.getElementById('contactButton').onclick = openWhatsApp;
+  // 绑定按钮
+  document.getElementById('whatsappMainBtn').addEventListener('click', openWhatsApp);
 </script>
 
 </body>
