@@ -61,7 +61,7 @@
       padding-left: 16px;
     }
 
-    /* 全局WhatsApp按钮 - 响应式优化 + 原文字保留 */
+    /* 全局WhatsApp按钮 */
     .global-whatsapp-btn {
       width: 360px;
       max-width: 90%;
@@ -91,7 +91,6 @@
 
     .whatsapp-icon {
       font-size: 22px;
-      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
     }
 
     /* 卡片网格 */
@@ -115,7 +114,6 @@
       box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.15);
     }
 
-    /* 图片容器优化脸部展示 + 后备友好 */
     .card-img-container {
       width: 100%;
       height: 280px;
@@ -124,7 +122,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
     }
 
     .card-img {
@@ -132,30 +129,16 @@
       height: 100%;
       object-fit: cover;
       object-position: center 20%;
-      transition: transform 0.4s;
-    }
-
-    .friend-card:hover .card-img {
-      transform: scale(1.02);
-    }
-
-    /* 后备图片占位样式 (当图片加载失败时显示) */
-    .card-img.error-img {
-      object-fit: contain;
-      background: #f1f3f5;
-      padding: 20px;
     }
 
     .card-body {
-      padding: 18px 18px 22px;
+      padding: 18px;
     }
 
     .name-row {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
       margin-bottom: 8px;
-      flex-wrap: wrap;
     }
 
     .name {
@@ -166,7 +149,6 @@
 
     .status {
       font-size: 12px;
-      font-weight: 600;
       background: #e6f9ef;
       padding: 4px 8px;
       border-radius: 30px;
@@ -177,16 +159,12 @@
       font-size: 13px;
       color: #5c6f87;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 8px;
     }
 
     .tag {
@@ -195,11 +173,8 @@
       padding: 5px 12px;
       border-radius: 40px;
       font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.3px;
     }
 
-    /* 底部 */
     footer {
       background: #ffffff;
       padding: 28px 20px;
@@ -208,49 +183,6 @@
       color: #6c7a8e;
       font-size: 13px;
       border-top: 1px solid #eef2f6;
-    }
-
-    /* 移动端适配增强 */
-    @media (max-width: 640px) {
-      .container {
-        padding: 0 16px;
-      }
-      .section-title {
-        font-size: 22px;
-      }
-      .global-whatsapp-btn {
-        width: calc(100% - 32px);
-        max-width: 340px;
-        padding: 12px 14px;
-        font-size: 15px;
-      }
-      .card-img-container {
-        height: 250px;
-      }
-      .name {
-        font-size: 17px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card-list {
-        gap: 18px;
-      }
-      .card-body {
-        padding: 14px;
-      }
-    }
-
-    /* 优雅滚动条 */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f0f2f5;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 6px;
     }
   </style>
 
@@ -267,9 +199,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1287460963524160');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
-/></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 </head>
 <body>
@@ -290,16 +220,14 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
   <div class="card-list">
     <div class="friend-card">
       <div class="card-img-container">
-        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83f295729fc544d08ae34b2e59c6a078.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=8BqxZUbuYu1XWUFjf5emjGGI4v4%3D" 
-             class="card-img" alt="Chloe Tan 马来西亚女士"
-             onerror="this.onerror=null; this.classList.add('error-img'); this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23e2e8f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2394a3b8\' font-size=\'16\'%3E🌸 Chloe%3C/text%3E%3C/svg%3E';">
+        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83f295729fc544d08ae34b2e59c6a078.jpg" class="card-img" alt="Chloe">
       </div>
       <div class="card-body">
         <div class="name-row">
           <div class="name">Chloe Tan</div>
           <div class="status">🟢 在线</div>
         </div>
-        <div class="location">📍 吉隆坡 · Kuala Lumpur</div>
+        <div class="location">📍 吉隆坡</div>
         <div class="tags">
           <span class="tag">🧘 瑜伽</span>
           <span class="tag">🍰 烘焙</span>
@@ -310,16 +238,14 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
 
     <div class="friend-card">
       <div class="card-img-container">
-        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/218c50cbc6d84794a71a3a6ae7fcfb9e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=l5vPqra7Sw8zDvx5wJoeqNbzDHA%3D" 
-             class="card-img" alt="Iris Lee 马来西亚女士"
-             onerror="this.onerror=null; this.classList.add('error-img'); this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23e2e8f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2394a3b8\' font-size=\'16\'%3E💄 Iris%3C/text%3E%3C/svg%3E';">
+        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/218c50cbc6d84794a71a3a6ae7fcfb9e.jpg" class="card-img" alt="Iris">
       </div>
       <div class="card-body">
         <div class="name-row">
           <div class="name">Iris Lee</div>
           <div class="status">🟢 在线</div>
         </div>
-        <div class="location">📍 槟城 · Penang</div>
+        <div class="location">📍 槟城</div>
         <div class="tags">
           <span class="tag">💄 美妆</span>
           <span class="tag">🎬 电影</span>
@@ -330,16 +256,14 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
 
     <div class="friend-card">
       <div class="card-img-container">
-        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5fa022bcce6c4b9fac1ab4626fe027bd.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=HYd3IY7b3k1JSSdiRWBBeWxplSk%3D" 
-             class="card-img" alt="Sophia Ng 马来西亚女士"
-             onerror="this.onerror=null; this.classList.add('error-img'); this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23e2e8f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2394a3b8\' font-size=\'16\'%3E📖 Sophia%3C/text%3E%3C/svg%3E';">
+        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5fa022bcce6c4b9fac1ab4626fe027bd.jpg" class="card-img" alt="Sophia">
       </div>
       <div class="card-body">
         <div class="name-row">
           <div class="name">Sophia Ng</div>
           <div class="status">⏳ 30分钟前在线</div>
         </div>
-        <div class="location">📍 柔佛 · Johor</div>
+        <div class="location">📍 柔佛</div>
         <div class="tags">
           <span class="tag">📚 阅读</span>
           <span class="tag">🎵 音乐</span>
@@ -350,16 +274,14 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
 
     <div class="friend-card">
       <div class="card-img-container">
-        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c6977cbe89064958b64fda5dee9088d4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604141641194CCF470E85EFF6563087&rrcfp=8a172a1a&x-expires=1776760879&x-signature=72l1nT1YnQqbDz2kqnw23KOkX5k%3D" 
-             class="card-img" alt="Emma Lim 马来西亚女士"
-             onerror="this.onerror=null; this.classList.add('error-img'); this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23e2e8f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2394a3b8\' font-size=\'16\'%3E💃 Emma%3C/text%3E%3C/svg%3E';">
+        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c6977cbe89064958b64fda5dee9088d4.jpg" class="card-img" alt="Emma">
       </div>
       <div class="card-body">
         <div class="name-row">
           <div class="name">Emma Lim</div>
           <div class="status">🟢 在线</div>
         </div>
-        <div class="location">📍 马六甲 · Melaka</div>
+        <div class="location">📍 马六甲</div>
         <div class="tags">
           <span class="tag">💃 舞蹈</span>
           <span class="tag">🎨 绘画</span>
@@ -371,17 +293,16 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
 </div>
 
 <footer>
-  © 2025 MY Friends - 马来西亚女士交友平台 | 真诚·本地社交 | 遇见你的理想交流
+  © 2025 MY Friends - 马来西亚女士交友平台
 </footer>
 
 <script>
-  // 一键直接跳转到WhatsApp聊天页面
-  function openWhatsApp() {
-    window.open('https://wa.me/60189157067', '_blank');
-  }
-  
-  // 绑定按钮
-  document.getElementById('whatsappMainBtn').addEventListener('click', openWhatsApp);
+// 点击直接打开 WhatsApp + 自动带入文字：你好
+function openWhatsApp() {
+  window.open("https://wa.me/60189157067?text=你好", "_blank");
+}
+
+document.getElementById("whatsappMainBtn").onclick = openWhatsApp;
 </script>
 
 </body>
