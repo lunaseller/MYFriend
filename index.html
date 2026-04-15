@@ -287,7 +287,7 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
     <span class="whatsapp-icon">💬</span> 点击按钮联系我，你会得到你想要的 Whatsapp
   </button>
 
-  <!-- 你要的联系按钮 -->
+  <!-- 联系按钮 -->
   <button id="contactButton">联系</button>
 
   <div class="card-list">
@@ -404,6 +404,7 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
     }
   }
 
+  // 核心跳转函数（修复版，兼容手机+电脑）
   function openWhatsApp() {
     const rawNumber = allNumbers[currentIndex];
     const phoneNumber = '+' + rawNumber;
@@ -413,32 +414,24 @@ src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
     localStorage.setItem('currentNumberIndex', currentIndex);
     
     const presetMessage = encodeURIComponent('您好，我想认识一下您！');
+    
+    // 优先唤起手机APP，失败自动跳网页版
+    const whatsappAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${presetMessage}`;
     const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${presetMessage}`;
     
-    const newWindow = window.open('', '_blank');
-    if (newWindow) {
-      newWindow.location.href = whatsappWebUrl;
-      console.log(`[MY Friends] 打开WhatsApp联系: ${phoneNumber}`);
-    } else {
-      window.location.href = whatsappWebUrl;
-    }
+    window.open(whatsappAppUrl, '_blank');
+    
+    // 降级方案
+    setTimeout(() => {
+      window.open(whatsappWebUrl, '_blank');
+    }, 300);
   }
   
-  const whatsappBtn = document.getElementById('whatsappMainBtn');
-  if (whatsappBtn) {
-    whatsappBtn.removeEventListener('click', openWhatsApp);
-    whatsappBtn.addEventListener('click', openWhatsApp);
-  } else {
-    document.querySelector('.global-whatsapp-btn')?.addEventListener('click', openWhatsApp);
-  }
-</script>
+  // 绑定绿色大按钮
+  document.getElementById('whatsappMainBtn').onclick = openWhatsApp;
 
-<!-- 你要的联系按钮点击事件 -->
-<script type="text/javascript">
-document.getElementById('contactButton').addEventListener('click', function() {
-insert_event_code_here;
-...
-}, false);
+  // 绑定联系按钮
+  document.getElementById('contactButton').onclick = openWhatsApp;
 </script>
 
 </body>
