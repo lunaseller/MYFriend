@@ -214,8 +214,9 @@ fbq('track', 'PageView');
 <div class="container">
   <h2 class="section-title">🇲🇾 马来西亚女士推荐 · 真诚相遇</h2>
   
+  <!-- 核心修改：按钮文案替换 -->
   <button class="global-whatsapp-btn" id="whatsappMainBtn">
-    <span class="whatsapp-icon">💬</span> 点击按钮联系我，你会得到你想要的 Whatsapp
+    <span class="whatsapp-icon">💬</span> 点击WhatsApp按钮和你心仪的美女聊天
   </button>
 
   <div class="card-list">
@@ -304,17 +305,17 @@ fbq('track', 'PageView');
 <script>
 // 1. 配置需要轮询的WhatsApp号码列表（仅保留你指定的11个号码）
 const wsNumbers = [
-  "60189157509",
-  "60189157067",
-  "60165849638",
-  "60149035201",
-  "60162370538",
-  "60162723948",
   "60146341778",
   "60169325905",
   "60146053604",
   "60164034878",
-  "60143631938"
+  "60143631938",
+  "60162723948",
+  "60162370538",
+  "60149035201",
+  "60189157509",
+  "60189157067",
+  "60165849638"
 ];
 
 // 2. 随机获取一个WS号码的函数
