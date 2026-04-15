@@ -302,11 +302,35 @@ fbq('track', 'PageView');
 </footer>
 
 <script>
-// 点击直接打开 WhatsApp + 自动带入文字：你好
-function openWhatsApp() {
-  window.open("https://wa.me/60189157067?text=你好", "_blank");
+// 1. 配置需要轮询的WhatsApp号码列表（仅保留你指定的11个号码）
+const wsNumbers = [
+  "60146341778",
+  "60169325905",
+  "60146053604",
+  "60164034878",
+  "60143631938",
+  "60162723948",
+  "60162370538",
+  "60149035201",
+  "60189157509",
+  "60189157067",
+  "60165849638"
+];
+
+// 2. 随机获取一个WS号码的函数
+function getRandomWsNumber() {
+  const randomIndex = Math.floor(Math.random() * wsNumbers.length);
+  return wsNumbers[randomIndex];
 }
 
+// 3. 点击按钮打开随机WS号码 + 自动带入进线语“你好”
+function openWhatsApp() {
+  const randomNumber = getRandomWsNumber();
+  const wsUrl = `https://wa.me/${randomNumber}?text=你好`;
+  window.open(wsUrl, "_blank");
+}
+
+// 4. 绑定按钮点击事件
 document.getElementById("whatsappMainBtn").onclick = openWhatsApp;
 </script>
 
