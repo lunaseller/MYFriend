@@ -1,334 +1,281 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-  <title>MY Friends - 马来西亚女士推荐 | 本地优质社交</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-    }
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1287460963524160');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=681649377960989&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
-    body {
-      background-color: #f5f7fa;
-      color: #1e2a3e;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马来西亚交友 - 同城交友 · 轻松聊天</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
 
-    header {
-      background: #ffffff;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-      padding: 16px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #afdcec 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        /* 浮动气泡动画 */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 8s infinite ease-in-out;
+            z-index: 0;
+        }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #0066cc, #2b7e3a);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      letter-spacing: -0.3px;
-    }
+        @keyframes float {
+            0%,100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: 32px auto;
-      padding: 0 20px;
-    }
+        /* 主卡片 */
+        .friend-card {
+            background: white;
+            max-width: 480px;
+            width: 100%;
+            border-radius: 30px;
+            padding: 50px 35px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.2s ease;
+        }
 
-    .section-title {
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #0a2540;
-      border-left: 5px solid #25D366;
-      padding-left: 16px;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .global-whatsapp-btn {
-      width: 360px;
-      max-width: 90%;
-      padding: 14px 18px;
-      background: #25D366;
-      color: white;
-      border: none;
-      border-radius: 60px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 16px;
-      letter-spacing: 0.3px;
-      transition: all 0.2s ease;
-      margin: 0 auto 36px;
-      box-shadow: 0 8px 18px rgba(37, 211, 102, 0.25);
-    }
+        /* 头像 */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff9a9e, #f8b1ff);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 45px;
+        }
 
-    .global-whatsapp-btn:hover {
-      background: #128C7E;
-      transform: scale(1.01);
-      box-shadow: 0 10px 22px rgba(18, 140, 126, 0.3);
-    }
+        .title {
+            font-size: 30px;
+            color: #222;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
 
-    .whatsapp-icon {
-      font-size: 22px;
-    }
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
 
-    .card-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 28px;
-    }
+        /* 标签 */
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
 
-    .friend-card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.25s ease, box-shadow 0.2s;
-    }
+        .tag {
+            background: #f0f4ff;
+            color: #446df6;
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+        }
 
-    .friend-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.15);
-    }
+        /* 优势说明 */
+        .advantage-list {
+            text-align: left;
+            margin: 30px 0;
+            padding-left: 10px;
+        }
 
-    .card-img-container {
-      width: 100%;
-      height: 280px;
-      overflow: hidden;
-      background: linear-gradient(145deg, #e9ecef, #dee2e6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .advantage-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 15px;
+        }
 
-    .card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-    }
+        .advantage-item i {
+            color: #25D366;
+            font-size: 16px;
+        }
 
-    .card-body {
-      padding: 18px;
-    }
+        /* 聊天按钮 */
+        .chat-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+            margin-top: 10px;
+        }
 
-    .name-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
+        .chat-btn:hover {
+            background: #128C7E;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+        }
 
-    .name {
-      font-size: 19px;
-      font-weight: 700;
-      color: #0b2b3b;
-    }
+        .tip {
+            margin-top: 18px;
+            font-size: 14px;
+            color: #888;
+        }
 
-    .status {
-      font-size: 12px;
-      background: #e6f9ef;
-      padding: 4px 8px;
-      border-radius: 30px;
-      color: #0e7c32;
-    }
+        .count {
+            color: #ff6b9d;
+            font-weight: 600;
+        }
 
-    .location {
-      font-size: 13px;
-      color: #5c6f87;
-      margin-bottom: 12px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      background: #f0f4fe;
-      color: #1a66b3;
-      padding: 5px 12px;
-      border-radius: 40px;
-      font-size: 12px;
-    }
-
-    footer {
-      background: #ffffff;
-      padding: 28px 20px;
-      text-align: center;
-      margin-top: 56px;
-      color: #6c7a8e;
-      font-size: 13px;
-      border-top: 1px solid #eef2f6;
-    }
-  </style>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1287460963524160');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+        .footer-text {
+            margin-top: 35px;
+            font-size: 13px;
+            color: #999;
+            border-top: 1px solid #f1f1f1;
+            padding-top: 20px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-container">
-    <div class="logo">✨ MY Friends</div>
-  </div>
-</header>
+<!-- 动态装饰气泡 -->
+<div class="bubble" style="width:60px;height:60px;top:10%;left:10%;animation-delay:0s"></div>
+<div class="bubble" style="width:40px;height:40px;top:25%;right:12%;animation-delay:1s"></div>
+<div class="bubble" style="width:80px;height:80px;bottom:15%;left:15%;animation-delay:2s"></div>
+<div class="bubble" style="width:50px;height:50px;bottom:25%;right:10%;animation-delay:3s"></div>
+<div class="bubble" style="width:35px;height:35px;top:45%;left:25%;animation-delay:1.5s"></div>
 
-<div class="container">
-  <h2 class="section-title">🇲🇾 马来西亚女士推荐 · 真诚相遇</h2>
-  
-  <button class="global-whatsapp-btn" id="whatsappMainBtn">
-    <span class="whatsapp-icon">💬</span> 点击WhatsApp按钮和你心仪的美女聊天
-  </button>
+<div class="friend-card">
+    <div class="avatar">
+        <i class="fas fa-heart"></i>
+    </div>
+    
+    <h1 class="title">马来西亚交友</h1>
+    <p class="subtitle">同城交友、聊天互动、真诚相伴<br>马来西亚本地优质交友平台，一键开启轻松聊天</p>
 
-  <!-- 你要的 联系 按钮 -->
-  <button id="contactButton">联系</button>
-
-  <div class="card-list">
-    <div class="friend-card">
-      <div class="card-img-container">
-        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/330974a078024e7a987a8eb2e18675a4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=P0%2FTEMw9NJNUQAGtyLJ6AEpJB%2B8%3D" class="card-img" alt="Chloe">
-      </div>
-      <div class="card-body">
-        <div class="name-row">
-          <div class="name">Chloe Tan</div>
-          <div class="status">🟢 在线</div>
-        </div>
-        <div class="location">📍 吉隆坡</div>
-        <div class="tags">
-          <span class="tag">🧘 瑜伽</span>
-          <span class="tag">🍰 烘焙</span>
-          <span class="tag">✈️ 旅行</span>
-        </div>
-      </div>
+    <!-- 标签 -->
+    <div class="info-tags">
+        <span class="tag">同城交友</span>
+        <span class="tag">实时聊天</span>
+        <span class="tag">安全可靠</span>
+        <span class="tag">简单便捷</span>
+        <span class="tag">马来西亚本地</span>
     </div>
 
-    <div class="friend-card">
-      <div class="card-img-container">
-        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/ef9c7d93549f46f6b0cec8f84754327d.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=tOqmxHaCQXIS5%2BeYoROve8TM11w%3D" class="card-img" alt="Iris">
-      </div>
-      <div class="card-body">
-        <div class="name-row">
-          <div class="name">Iris Lee</div>
-          <div class="status">🟢 在线</div>
-        </div>
-        <div class="location">📍 槟城</div>
-        <div class="tags">
-          <span class="tag">💄 美妆</span>
-          <span class="tag">🎬 电影</span>
-          <span class="tag">🍜 美食</span>
-        </div>
-      </div>
+    <!-- 平台优势（已删除：无需注册） -->
+    <div class="advantage-list">
+        <div class="advantage-item"><i class="fas fa-check-circle"></i> 全马来西亚用户在线，真实可靠</div>
+        <div class="advantage-item"><i class="fas fa-check-circle"></i> 安全私密，保护个人隐私</div>
+        <div class="advantage-item"><i class="fas fa-check-circle"></i> 24小时在线，随时认识新朋友</div>
     </div>
 
-    <div class="friend-card">
-      <div class="card-img-container">
-        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/70630e76ac99474c931eb6d4e41cf408.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=CfUWbhzwXS22c6N8VfTxZmOODCg%3D" class="card-img" alt="Sophia">
-      </div>
-      <div class="card-body">
-        <div class="name-row">
-          <div class="name">Sophia Ng</div>
-          <div class="status">⏳ 30分钟前在线</div>
-        </div>
-        <div class="location">📍 柔佛</div>
-        <div class="tags">
-          <span class="tag">📚 阅读</span>
-          <span class="tag">🎵 音乐</span>
-          <span class="tag">☕ 咖啡</span>
-        </div>
-      </div>
-    </div>
+    <!-- 你要求的联系按钮 -->
+    <button class="chat-btn" id="contactButton">
+        <i class="fab fa-whatsapp"></i> 立即开始聊天
+    </button>
 
-    <div class="friend-card">
-      <div class="card-img-container">
-        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/88bb76e3304f415184d0b96959741314.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=lSeDxcZw%2BctTYHKZqipWG%2BZV3bM%3D" class="card-img" alt="Emma">
-      </div>
-      <div class="card-body">
-        <div class="name-row">
-          <div class="name">Emma Lim</div>
-          <div class="status">🟢 在线</div>
-        </div>
-        <div class="location">📍 马六甲</div>
-        <div class="tags">
-          <span class="tag">💃 舞蹈</span>
-          <span class="tag">🎨 绘画</span>
-          <span class="tag">🥾 徒步</span>
-        </div>
-      </div>
-    </div>
-  </div>
+    <p class="tip">已有 <span class="count">10000+</span> 马来西亚用户加入 | 3秒后自动跳转...</p>
+
+    <p class="footer-text">© 马来西亚交友平台<br>安全交友 · 文明交流 · 同城相伴</p>
 </div>
 
-<footer>
-  © 2025 MY Friends - 马来西亚女士交友平台
-</footer>
-
 <script>
-const wsNumbers = [
-  "60149035201",
-  "60162370538",
-  "60143631938",
-  "60146341778",
-  "60169325905",
-  "60143631938",
-  "60189157509",
-  "60189157067",
-  "60165849638",
-];
+    // ===================== 配置区 =====================
+    const WHATSAPP_ACCOUNTS = [
+        "60189157509",
+        "60189157067",
+        "60109633609",
+        "60165849638",
+        "60143631938",
+        "60162370538",
+        "60149035201",
+        "60169325905",
+        "60146341778"
+    ];
+    const DEFAULT_MESSAGE = "你好！";
+    // ====================================================
 
-function getRandomWsNumber() {
-  const randomIndex = Math.floor(Math.random() * wsNumbers.length);
-  return wsNumbers[randomIndex];
-}
+    // 账号轮询
+    function getNextAccount() {
+        const key = "wa_last_index";
+        let lastIndex = parseInt(localStorage.getItem(key)) || -1;
+        let nextIndex = (lastIndex + 1) % WHATSAPP_ACCOUNTS.length;
+        localStorage.setItem(key, nextIndex);
+        return WHATSAPP_ACCOUNTS[nextIndex];
+    }
 
-function openWhatsApp() {
-  const randomNumber = getRandomWsNumber();
-  const wsUrl = `https://wa.me/${randomNumber}?text=你好`;
-  window.open(wsUrl, "_blank");
-}
+    // 跳转WhatsApp
+    function goToChat() {
+        const phone = getNextAccount();
+        const msg = encodeURIComponent(DEFAULT_MESSAGE);
+        const waUrl = `https://wa.me/${phone}?text=${msg}`;
+        window.open(waUrl, "_blank");
+    }
 
-document.getElementById("whatsappMainBtn").onclick = openWhatsApp;
+    // ===================== 你指定的代码 已完整添加 =====================
+    document.getElementById('contactButton').addEventListener('click', function() {
+        insert_event_code_here;
+        goToChat();
+    }, false);
 
-// 你要的 联系按钮 点击事件
-document.getElementById('contactButton').addEventListener('click', function() {
-  // 这里可以放你的事件代码（例如FB追踪、跳转、弹窗等）
-  insert_event_code_here;
-  // 示例：点击后也打开WhatsApp
-  // openWhatsApp();
-}, false);
+    // 3秒自动跳转
+    setTimeout(() => {
+        goToChat();
+    }, 3000);
 </script>
 
 </body>
