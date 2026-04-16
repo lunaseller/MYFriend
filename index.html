@@ -259,7 +259,6 @@
         我们是马来西亚本地正规交友平台，数万名真实用户在线，每天都有人在这里找到朋友、知己与真爱。
         无广告、无套路、无收费，只为给你最纯净安全的交友环境。
     </p>
-    <!-- 按钮文字修改为「立即联系加入」 -->
     <button id="contactButton">立即联系加入</button>
     <div class="lang-label">Bahasa Melayu | English | 中文</div>
 </div>
@@ -274,7 +273,7 @@
             <div class="user-city">KL</div>
         </div>
         <div class="user">
-            <img class="avatar" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/09447c19931a4a018d620b74960556bf.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=zD7j3lNcRI5shWWz4TYyYsoYLVU%3D" alt="Daniel">
+            <img class="avatar" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/09447c19931a4a018d620b74960556bf.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=zDj3lNcRI5shWWz4TYyYsoYLVU%3D" alt="Daniel">
             <div class="user-name">Daniel</div>
             <div class="user-city">Penang</div>
         </div>
@@ -383,8 +382,6 @@
     </div>
 </section>
 
-<!-- 已删除底部的「立即加入我们」板块 -->
-
 <footer>
     © 2026 Singles Meet Malaysia. Semua hak terpelihara. Privasi & keamanan terjamin.
     <br>Platform temu janji selamat & sah di Malaysia.
@@ -392,21 +389,14 @@
 
 </div>
 
-<!-- 联系按钮点击事件脚本 - 修改为跳转WhatsApp -->
+<!-- 联系按钮点击跳转WhatsApp，进线语：你好！ -->
 <script type="text/javascript">
 document.getElementById('contactButton').addEventListener('click', function() {
-    // 替换这里的手机号码为你的WhatsApp号码（格式：国家码+号码，不带+号和空格）
     const phoneNumber = '60123456789';
-    // 可选：设置默认发送的消息
-    const defaultMessage = '您好，我想加入Singles Meet Malaysia交友平台';
-    // 编码消息内容，确保URL能正常识别
+    const defaultMessage = '你好！';
     const encodedMessage = encodeURIComponent(defaultMessage);
-    // 构建WhatsApp跳转链接
     const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    // 在新标签页打开WhatsApp聊天页面
     window.open(waUrl, '_blank');
-    
-    // 保留FB像素事件追踪（可选）
     fbq('track', 'Contact');
 }, false);
 </script>
