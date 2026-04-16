@@ -1,281 +1,361 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1287460963524160');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=681649377960989&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>马来西亚交友 - 同城交友 · 轻松聊天</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Singles Meet Malaysia - 马来西亚最大正规同城交友平台</title>
+    <meta name="description" content="马来西亚正规同城交友平台，安全真实、免费高效，寻找朋友、伴侣、缘分，就在Singles Meet Malaysia.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         }
-
         body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #afdcec 100%);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #d946ef);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: #fff;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
             padding: 20px;
-            position: relative;
-            overflow-x: hidden;
         }
-
-        /* 浮动气泡动画 */
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            animation: float 8s infinite ease-in-out;
-            z-index: 0;
+        /* 头部 */
+        header {
+            text-align: center;
+            padding: 50px 0 30px;
         }
-
-        @keyframes float {
-            0%,100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
+        .logo {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, #f0f9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .slogan {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 8px;
+        }
+        .sub-slogan {
+            font-size: 16px;
+            opacity: 0.88;
         }
 
         /* 主卡片 */
-        .friend-card {
-            background: white;
-            max-width: 480px;
-            width: 100%;
-            border-radius: 30px;
-            padding: 50px 35px;
+        .main-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 50px 40px;
+            margin: 30px 0 40px;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .main-card h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .main-card p {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 35px;
+            opacity: 0.95;
+        }
+        .wa-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            background: #25D366;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+        }
+        .wa-btn:hover {
+            transform: translateY(-3px);
+            background: #1ebe5b;
+            box-shadow: 0 8px 20px rgba(37,211,102,0.4);
+        }
+        .lang-label {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* 板块通用 */
+        .section {
+            margin: 60px 0;
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
             position: relative;
-            z-index: 1;
-            animation: fadeIn 1.2s ease;
+        }
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: rgba(255,255,255,0.6);
+            display: block;
+            margin: 12px auto 0;
+            border-radius: 2px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* 用户展示 - 核心修改：适配真实图片头像 */
+        .user-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
         }
-
-        /* 头像 */
+        .user {
+            text-align: center;
+        }
         .avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #ff9a9e, #f8b1ff);
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            margin: 0 auto 25px;
+            margin: 0 auto 10px;
+            border: 3px solid rgba(255,255,255,0.3);
+            object-fit: cover; /* 保证图片不变形 */
+        }
+        .user-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .user-city {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* 优势卡片 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.08);
+            padding: 30px 25px;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+        .feature-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 45px;
+            gap: 8px;
+        }
+        .feature-card p {
+            font-size: 14px;
+            opacity: 0.9;
         }
 
-        .title {
-            font-size: 30px;
-            color: #222;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        /* 标签 */
-        .info-tags {
+        /* 城市覆盖 */
+        .cities {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-top: 20px;
         }
-
-        .tag {
-            background: #f0f4ff;
-            color: #446df6;
-            padding: 7px 15px;
+        .city-tag {
+            background: rgba(255,255,255,0.12);
+            padding: 10px 18px;
             border-radius: 30px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        /* 优势说明 */
-        .advantage-list {
-            text-align: left;
-            margin: 30px 0;
-            padding-left: 10px;
-        }
-
-        .advantage-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            color: #555;
-            font-size: 15px;
-        }
-
-        .advantage-item i {
-            color: #25D366;
-            font-size: 16px;
-        }
-
-        /* 聊天按钮 */
-        .chat-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #25D366;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
-            margin-top: 10px;
-        }
-
-        .chat-btn:hover {
-            background: #128C7E;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        .tip {
-            margin-top: 18px;
             font-size: 14px;
-            color: #888;
         }
 
-        .count {
-            color: #ff6b9d;
-            font-weight: 600;
+        /* 底部承诺 */
+        .promise-box {
+            background: rgba(255,255,255,0.09);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
         }
 
-        .footer-text {
-            margin-top: 35px;
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            opacity: 0.7;
             font-size: 13px;
-            color: #999;
-            border-top: 1px solid #f1f1f1;
-            padding-top: 20px;
-            line-height: 1.5;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-<!-- 动态装饰气泡 -->
-<div class="bubble" style="width:60px;height:60px;top:10%;left:10%;animation-delay:0s"></div>
-<div class="bubble" style="width:40px;height:40px;top:25%;right:12%;animation-delay:1s"></div>
-<div class="bubble" style="width:80px;height:80px;bottom:15%;left:15%;animation-delay:2s"></div>
-<div class="bubble" style="width:50px;height:50px;bottom:25%;right:10%;animation-delay:3s"></div>
-<div class="bubble" style="width:35px;height:35px;top:45%;left:25%;animation-delay:1.5s"></div>
+<div class="container">
 
-<div class="friend-card">
-    <div class="avatar">
-        <i class="fas fa-heart"></i>
-    </div>
-    
-    <h1 class="title">马来西亚交友</h1>
-    <p class="subtitle">同城交友、聊天互动、真诚相伴<br>马来西亚本地优质交友平台，一键开启轻松聊天</p>
+<!-- 头部 -->
+<header>
+    <div class="logo">Singles Meet Malaysia</div>
+    <div class="slogan">马来西亚官方正规同城交友平台 · 安全真实 · 免费高效</div>
+    <div class="sub-slogan">Platform temu janji terbaik & selamat di Malaysia | Jumpa jodoh & kawan sebenar</div>
+</header>
 
-    <!-- 标签 -->
-    <div class="info-tags">
-        <span class="tag">同城交友</span>
-        <span class="tag">实时聊天</span>
-        <span class="tag">安全可靠</span>
-        <span class="tag">简单便捷</span>
-        <span class="tag">马来西亚本地</span>
-    </div>
-
-    <!-- 平台优势（已删除：无需注册） -->
-    <div class="advantage-list">
-        <div class="advantage-item"><i class="fas fa-check-circle"></i> 全马来西亚用户在线，真实可靠</div>
-        <div class="advantage-item"><i class="fas fa-check-circle"></i> 安全私密，保护个人隐私</div>
-        <div class="advantage-item"><i class="fas fa-check-circle"></i> 24小时在线，随时认识新朋友</div>
-    </div>
-
-    <!-- 你要求的联系按钮 -->
-    <button class="chat-btn" id="contactButton">
-        <i class="fab fa-whatsapp"></i> 立即开始聊天
-    </button>
-
-    <p class="tip">已有 <span class="count">10000+</span> 马来西亚用户加入 | 3秒后自动跳转...</p>
-
-    <p class="footer-text">© 马来西亚交友平台<br>安全交友 · 文明交流 · 同城相伴</p>
+<!-- 主行动区 -->
+<div class="main-card">
+    <h2>欢迎来到马来西亚最值得信赖的交友社区</h2>
+    <p>
+        我们是马来西亚本地正规交友平台，数万名真实用户在线，每天都有人在这里找到朋友、知己与真爱。
+        无广告、无套路、无收费，只为给你最纯净安全的交友环境。
+    </p>
+    <a class="wa-btn" href="https://wa.me/60123456789" target="_blank">
+        📩 Hubungi Kami / 立即联系加入
+    </a>
+    <div class="lang-label">Bahasa Melayu | English | 中文</div>
 </div>
 
-<script>
-    // ===================== 配置区 =====================
-    const WHATSAPP_ACCOUNTS = [
-        "60189157509",
-        "60189157067",
-        "60109633609",
-        "60165849638",
-        "60143631938",
-        "60162370538",
-        "60149035201",
-        "60169325905",
-        "60146341778"
-    ];
-    const DEFAULT_MESSAGE = "你好！";
-    // ====================================================
+<!-- 在线用户 - 核心修改：替换为真实图片头像 -->
+<section class="section">
+    <div class="section-title">Pengguna Dalam Talian / 在线活跃用户</div>
+    <div class="user-grid">
+        <div class="user">
+            <img class="avatar" src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8edcb440c1b74ea1926669c1ba5e5319.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=QLpkZy0%2FGqWd30GLpUp%2BzlMj0tc%3D" alt="Nurul">
+            <div class="user-name">Nurul</div>
+            <div class="user-city">KL</div>
+        </div>
+        <div class="user">
+            <img class="avatar" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/09447c19931a4a018d620b74960556bf.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=zD7j3lNcRI5shWWz4TYyYsoYLVU%3D" alt="Daniel">
+            <div class="user-name">Daniel</div>
+            <div class="user-city">Penang</div>
+        </div>
+        <div class="user">
+            <img class="avatar" src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/f6ae4c39fd5f4d3e859ca1694ac069f4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=O5xk28KweiE0tyCxIGfm1Hj3Tp8%3D" alt="Mei Ling">
+            <div class="user-name">Mei Ling</div>
+            <div class="user-city">Johor</div>
+        </div>
+        <div class="user">
+            <img class="avatar" src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/638bca67c12849a9b79d7aec376c8d10.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=78KB9eY9vinXbh6JQ5iVK33ehIg%3D" alt="Amir">
+            <div class="user-name">Amir</div>
+            <div class="user-city">Selangor</div>
+        </div>
+        <div class="user">
+            <img class="avatar" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8b6b7e322aa14fc89b1ac861acff313d.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=KWycHuHQhZjsetk7FcMnGPP9rXw%3D" alt="Siti">
+            <div class="user-name">Siti</div>
+            <div class="user-city">Melaka</div>
+        </div>
+        <div class="user">
+            <img class="avatar" src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/cadcf421fba248f89aee605f257b6ceb.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=yp6tpqDGHRgZZos7eE1hJ52dzeM%3D" alt="Ken">
+            <div class="user-name">Ken</div>
+            <div class="user-city">Ipoh</div>
+        </div>
+    </div>
+</section>
 
-    // 账号轮询
-    function getNextAccount() {
-        const key = "wa_last_index";
-        let lastIndex = parseInt(localStorage.getItem(key)) || -1;
-        let nextIndex = (lastIndex + 1) % WHATSAPP_ACCOUNTS.length;
-        localStorage.setItem(key, nextIndex);
-        return WHATSAPP_ACCOUNTS[nextIndex];
-    }
+<!-- 平台核心优势 -->
+<section class="section">
+    <div class="section-title">Kelebihan Platform / 平台核心优势</div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>✅ 100% 免费使用</h3>
+            <p>Tidak ada caj tersembunyi. 无任何隐藏费用，所有功能完全免费开放。</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 真实用户审核</h3>
+            <p>Setiap akaun diperiksa. 严格人工审核，杜绝虚假账号与骗子。</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 24小时安全管理</h3>
+            <p>Moderator aktif 24/7. 管理员全天候维护，交友更安心。</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 无广告纯净体验</h3>
+            <p>Tanpa iklan mengganggu. 全程无广告打扰，专注交友聊天。</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 全马同城覆盖</h3>
+            <p>Semua negeri di Malaysia. 覆盖马来西亚各大城市，轻松遇见身边人。</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 隐私绝对保障</h3>
+            <p>Privasi anda dilindungi. 严格保护用户隐私，信息绝不泄露。</p>
+        </div>
+    </div>
+</section>
 
-    // 跳转WhatsApp
-    function goToChat() {
-        const phone = getNextAccount();
-        const msg = encodeURIComponent(DEFAULT_MESSAGE);
-        const waUrl = `https://wa.me/${phone}?text=${msg}`;
-        window.open(waUrl, "_blank");
-    }
+<!-- 覆盖城市 -->
+<section class="section">
+    <div class="section-title">Kawasan Liputan / 服务覆盖城市</div>
+    <div class="cities">
+        <span class="city-tag">Kuala Lumpur</span>
+        <span class="city-tag">Selangor</span>
+        <span class="city-tag">Penang</span>
+        <span class="city-tag">Johor Bahru</span>
+        <span class="city-tag">Melaka</span>
+        <span class="city-tag">Ipoh</span>
+        <span class="city-tag">Kuching</span>
+        <span class="city-tag">Kota Kinabalu</span>
+        <span class="city-tag">Negeri Sembilan</span>
+        <span class="city-tag">Pahang</span>
+        <span class="city-tag">Perak</span>
+        <span class="city-tag">Sabah & Sarawak</span>
+    </div>
+</section>
 
-    // ===================== 修复后的点击代码 =====================
-    document.getElementById('contactButton').addEventListener('click', function() {
-        goToChat();
-    }, false);
+<!-- 适合人群 -->
+<section class="section">
+    <div class="section-title">Untuk Siapa / 平台适合人群</div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>💞 寻找终身伴侣</h3>
+            <p>Cari pasangan hidup & jodoh sebenar</p>
+        </div>
+        <div class="feature-card">
+            <h3>🤝 认识真诚朋友</h3>
+            <p>Jumpa kawan baik & berkongsi cerita</p>
+        </div>
+        <div class="feature-card">
+            <h3>🌐 扩大社交圈子</h3>
+            <p>Perluas rangkaian sosial & peluang</p>
+        </div>
+        <div class="feature-card">
+            <h3>💬 轻松聊天陪伴</h3>
+            <p>Bersenang-senang & chat santai</p>
+        </div>
+    </div>
+</section>
 
-    // 3秒自动跳转
-    setTimeout(() => {
-        goToChat();
-    }, 3000);
-</script>
+<!-- 平台承诺 -->
+<section class="section">
+    <div class="section-title">Komitmen Kami / 我们的承诺</div>
+    <div class="promise-box">
+        <p style="font-size:16px; margin-bottom:15px;">我们坚持打造马来西亚最安全、最真实、最纯净的同城交友平台</p>
+        <p style="font-size:15px; opacity:0.9;">❌ 拒绝虚假账号　❌ 拒绝收费骗局　❌ 拒绝广告骚扰　✅ 保障用户安全　✅ 坚持免费开放</p>
+    </div>
+</section>
 
+<!-- 底部再次引导 -->
+<div class="main-card" style="background: rgba(255,255,255,0.18);">
+    <h2>Segera Sertai Kami / 立即加入我们</h2>
+    <p> ribuan pengguna lain di Malaysia sedang menunggu anda! Mulakan perjalanan pertemanan anda hari ini.</p>
+    <a class="wa-btn" href="https://wa.me/60123456789" target="_blank">
+        🚀 Sertai Sekarang / 立即加入
+    </a>
+</div>
+
+<footer>
+    © 2026 Singles Meet Malaysia. Semua hak terpelihara. Privasi & keamanan terjamin.
+    <br>Platform temu janji selamat & sah di Malaysia.
+</footer>
+
+</div>
 </body>
 </html>
