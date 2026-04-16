@@ -392,11 +392,22 @@
 
 </div>
 
-<!-- 联系按钮点击事件脚本 -->
+<!-- 联系按钮点击事件脚本 - 修改为跳转WhatsApp -->
 <script type="text/javascript">
 document.getElementById('contactButton').addEventListener('click', function() {
-insert_event_code_here;
-...
+    // 替换这里的手机号码为你的WhatsApp号码（格式：国家码+号码，不带+号和空格）
+    const phoneNumber = '60123456789';
+    // 可选：设置默认发送的消息
+    const defaultMessage = '您好，我想加入Singles Meet Malaysia交友平台';
+    // 编码消息内容，确保URL能正常识别
+    const encodedMessage = encodeURIComponent(defaultMessage);
+    // 构建WhatsApp跳转链接
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    // 在新标签页打开WhatsApp聊天页面
+    window.open(waUrl, '_blank');
+    
+    // 保留FB像素事件追踪（可选）
+    fbq('track', 'Contact');
 }, false);
 </script>
 
