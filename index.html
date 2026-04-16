@@ -389,14 +389,29 @@
 
 </div>
 
-<!-- 联系按钮点击跳转WhatsApp，进线语：你好！ -->
+<!-- 3个WS号码轮询 + 点击跳转聊天页面（进线语：你好！） -->
 <script type="text/javascript">
 document.getElementById('contactButton').addEventListener('click', function() {
-    const phoneNumber = '60123456789';
+    // 配置3个WhatsApp号码（已按你提供的填写）
+    const waNumbers = [
+        '60149035201',
+        '60162370538',
+        '60143631938'
+    ];
+    
+    // 随机获取一个号码（轮询核心逻辑）
+    const randomIndex = Math.floor(Math.random() * waNumbers.length);
+    const selectedNumber = waNumbers[randomIndex];
+    
+    // 进线语：你好！
     const defaultMessage = '你好！';
     const encodedMessage = encodeURIComponent(defaultMessage);
-    const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // 构建WS跳转链接并打开
+    const waUrl = `https://wa.me/${selectedNumber}?text=${encodedMessage}`;
     window.open(waUrl, '_blank');
+    
+    // FB像素事件追踪（可选）
     fbq('track', 'Contact');
 }, false);
 </script>
