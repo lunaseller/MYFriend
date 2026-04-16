@@ -6,7 +6,7 @@
     <title>Singles Meet Malaysia - 马来西亚最大正规同城交友平台</title>
     <meta name="description" content="马来西亚正规同城交友平台，安全真实、免费高效，寻找朋友、伴侣、缘分，就在Singles Meet Malaysia.">
     
-    <!-- Meta Pixel Code - 新增：FB像素代码，放置在head最优先位置 -->
+    <!-- Meta Pixel Code - FB像素代码 -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -96,6 +96,8 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+            border: none;
+            cursor: pointer;
         }
         .wa-btn:hover {
             transform: translateY(-3px);
@@ -106,6 +108,27 @@
             margin-top: 20px;
             font-size: 14px;
             opacity: 0.8;
+        }
+
+        /* 联系按钮基础样式（匹配现有按钮视觉） */
+        #contactButton {
+            display: inline-block;
+            padding: 20px 50px;
+            background: #25D366;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        #contactButton:hover {
+            transform: translateY(-3px);
+            background: #1ebe5b;
+            box-shadow: 0 8px 20px rgba(37,211,102,0.4);
         }
 
         /* 板块通用 */
@@ -129,7 +152,7 @@
             border-radius: 2px;
         }
 
-        /* 用户展示 - 核心修改：适配真实图片头像 */
+        /* 用户展示 - 适配真实图片头像 */
         .user-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -236,13 +259,12 @@
         我们是马来西亚本地正规交友平台，数万名真实用户在线，每天都有人在这里找到朋友、知己与真爱。
         无广告、无套路、无收费，只为给你最纯净安全的交友环境。
     </p>
-    <a class="wa-btn" href="https://wa.me/60123456789" target="_blank">
-        📩 Hubungi Kami / 立即联系加入
-    </a>
+    <!-- 按钮文字修改为「立即联系加入」 -->
+    <button id="contactButton">立即联系加入</button>
     <div class="lang-label">Bahasa Melayu | English | 中文</div>
 </div>
 
-<!-- 在线用户 - 核心修改：替换为新的6张图片头像 -->
+<!-- 在线用户 -->
 <section class="section">
     <div class="section-title">Pengguna Dalam Talian / 在线活跃用户</div>
     <div class="user-grid">
@@ -361,7 +383,7 @@
     </div>
 </section>
 
-<!-- 底部再次引导 -->
+<!-- 底部再次引导（若需要删除底部的立即加入按钮，可移除下方的<a class="wa-btn">标签） -->
 <div class="main-card" style="background: rgba(255,255,255,0.18);">
     <h2>Segera Sertai Kami / 立即加入我们</h2>
     <p> ribuan pengguna lain di Malaysia sedang menunggu anda! Mulakan perjalanan pertemanan anda hari ini.</p>
@@ -376,5 +398,14 @@
 </footer>
 
 </div>
+
+<!-- 联系按钮点击事件脚本 -->
+<script type="text/javascript">
+document.getElementById('contactButton').addEventListener('click', function() {
+insert_event_code_here;
+...
+}, false);
+</script>
+
 </body>
 </html>
