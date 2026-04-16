@@ -17,7 +17,6 @@
       color: #1e2a3e;
     }
 
-    /* 导航栏 */
     header {
       background: #ffffff;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
@@ -45,7 +44,6 @@
       letter-spacing: -0.3px;
     }
 
-    /* 主容器 */
     .container {
       max-width: 1100px;
       margin: 32px auto;
@@ -61,7 +59,6 @@
       padding-left: 16px;
     }
 
-    /* 全局WhatsApp按钮 */
     .global-whatsapp-btn {
       width: 360px;
       max-width: 90%;
@@ -93,14 +90,12 @@
       font-size: 22px;
     }
 
-    /* 卡片网格 */
     .card-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 28px;
     }
 
-    /* 交友卡片 */
     .friend-card {
       background: white;
       border-radius: 24px;
@@ -124,12 +119,11 @@
       justify-content: center;
     }
 
-    /* 关键调整：确保图片脸部清晰显示 */
     .card-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center; /* 重点：居中显示，优先展示脸部 */
+      object-position: center center;
     }
 
     .card-body {
@@ -200,7 +194,9 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1287460963524160');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"/></noscript>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"
+/></noscript>
 <!-- End Meta Pixel Code -->
 </head>
 <body>
@@ -214,13 +210,14 @@ fbq('track', 'PageView');
 <div class="container">
   <h2 class="section-title">🇲🇾 马来西亚女士推荐 · 真诚相遇</h2>
   
-  <!-- 核心修改：按钮文案替换 -->
   <button class="global-whatsapp-btn" id="whatsappMainBtn">
     <span class="whatsapp-icon">💬</span> 点击WhatsApp按钮和你心仪的美女聊天
   </button>
 
+  <!-- 你要的 联系 按钮 -->
+  <button id="contactButton">联系</button>
+
   <div class="card-list">
-    <!-- 第一张图片 -->
     <div class="friend-card">
       <div class="card-img-container">
         <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/330974a078024e7a987a8eb2e18675a4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=P0%2FTEMw9NJNUQAGtyLJ6AEpJB%2B8%3D" class="card-img" alt="Chloe">
@@ -239,7 +236,6 @@ fbq('track', 'PageView');
       </div>
     </div>
 
-    <!-- 第二张图片 -->
     <div class="friend-card">
       <div class="card-img-container">
         <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/ef9c7d93549f46f6b0cec8f84754327d.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=tOqmxHaCQXIS5%2BeYoROve8TM11w%3D" class="card-img" alt="Iris">
@@ -258,7 +254,6 @@ fbq('track', 'PageView');
       </div>
     </div>
 
-    <!-- 第三张图片 -->
     <div class="friend-card">
       <div class="card-img-container">
         <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/70630e76ac99474c931eb6d4e41cf408.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=CfUWbhzwXS22c6N8VfTxZmOODCg%3D" class="card-img" alt="Sophia">
@@ -277,7 +272,6 @@ fbq('track', 'PageView');
       </div>
     </div>
 
-    <!-- 第四张图片 -->
     <div class="friend-card">
       <div class="card-img-container">
         <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/88bb76e3304f415184d0b96959741314.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=lSeDxcZw%2BctTYHKZqipWG%2BZV3bM%3D" class="card-img" alt="Emma">
@@ -303,7 +297,6 @@ fbq('track', 'PageView');
 </footer>
 
 <script>
-// 1. 配置需要轮询的WhatsApp号码列表（仅保留你指定的11个号码）
 const wsNumbers = [
   "60149035201",
   "60162370538",
@@ -316,21 +309,26 @@ const wsNumbers = [
   "60165849638",
 ];
 
-// 2. 随机获取一个WS号码的函数
 function getRandomWsNumber() {
   const randomIndex = Math.floor(Math.random() * wsNumbers.length);
   return wsNumbers[randomIndex];
 }
 
-// 3. 点击按钮打开随机WS号码 + 自动带入进线语“你好”
 function openWhatsApp() {
   const randomNumber = getRandomWsNumber();
   const wsUrl = `https://wa.me/${randomNumber}?text=你好`;
   window.open(wsUrl, "_blank");
 }
 
-// 4. 绑定按钮点击事件
 document.getElementById("whatsappMainBtn").onclick = openWhatsApp;
+
+// 你要的 联系按钮 点击事件
+document.getElementById('contactButton').addEventListener('click', function() {
+  // 这里可以放你的事件代码（例如FB追踪、跳转、弹窗等）
+  insert_event_code_here;
+  // 示例：点击后也打开WhatsApp
+  // openWhatsApp();
+}, false);
 </script>
 
 </body>
