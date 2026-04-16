@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-  <title>MY Friends - 马来西亚女士推荐 | 本地优质社交</title>
+  <title>MY Friends - Malaysia Ladies Recommendation</title>
   <style>
     * {
       margin: 0;
@@ -17,7 +17,6 @@
       color: #1e2a3e;
     }
 
-    /* 导航栏 */
     header {
       background: #ffffff;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
@@ -45,7 +44,29 @@
       letter-spacing: -0.3px;
     }
 
-    /* 主容器 */
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+    }
+
+    .lang-btn {
+      padding: 6px 12px;
+      border: 1px solid #e0e6ed;
+      border-radius: 20px;
+      background: white;
+      color: #0a2540;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: #25D366;
+      color: white;
+      border-color: #25D366;
+    }
+
     .container {
       max-width: 1100px;
       margin: 32px auto;
@@ -61,7 +82,6 @@
       padding-left: 16px;
     }
 
-    /* 全局WhatsApp按钮 */
     .global-whatsapp-btn {
       width: 360px;
       max-width: 90%;
@@ -77,59 +97,34 @@
       justify-content: center;
       gap: 10px;
       font-size: 16px;
-      letter-spacing: 0.3px;
-      transition: all 0.2s ease;
       margin: 0 auto 36px;
       box-shadow: 0 8px 18px rgba(37, 211, 102, 0.25);
     }
 
-    .global-whatsapp-btn:hover {
-      background: #128C7E;
-      transform: scale(1.01);
-      box-shadow: 0 10px 22px rgba(18, 140, 126, 0.3);
-    }
-
-    .whatsapp-icon {
-      font-size: 22px;
-    }
-
-    /* 卡片网格 */
     .card-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 28px;
     }
 
-    /* 交友卡片 */
     .friend-card {
       background: white;
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.25s ease, box-shadow 0.2s;
-    }
-
-    .friend-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.15);
     }
 
     .card-img-container {
       width: 100%;
       height: 280px;
       overflow: hidden;
-      background: linear-gradient(145deg, #e9ecef, #dee2e6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    /* 关键调整：确保图片脸部清晰显示 */
     .card-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center; /* 重点：居中显示，优先展示脸部 */
+      object-position: center center;
     }
 
     .card-body {
@@ -187,152 +182,171 @@
     }
   </style>
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1287460963524160');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1287460963524160&ev=PageView&noscript=1"/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
 <header>
   <div class="nav-container">
     <div class="logo">✨ MY Friends</div>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="zh">中文</button>
+      <button class="lang-btn" data-lang="en">English</button>
+      <button class="lang-btn" data-lang="ms">Bahasa</button>
+    </div>
   </div>
 </header>
 
 <div class="container">
-  <h2 class="section-title">🇲🇾 马来西亚女士推荐 · 真诚相遇</h2>
-  
-  <!-- 核心修改：按钮文案替换 -->
-  <button class="global-whatsapp-btn" id="whatsappMainBtn">
-    <span class="whatsapp-icon">💬</span> 点击WhatsApp按钮和你心仪的美女聊天
+  <h2 class="section-title" 
+    data-zh="🇲🇾 马来西亚女士推荐 · 真诚相遇" 
+    data-en="🇲🇾 Malaysia Ladies Recommendation · Sincere Encounter" 
+    data-ms="🇲🇾 Cadangan Wanita Malaysia · Pertemuan Ikhlas">
+    🇲🇾 马来西亚女士推荐 · 真诚相遇
+  </h2>
+
+  <button class="global-whatsapp-btn" id="whatsappMainBtn" 
+    data-zh="💬 点击WhatsApp按钮和你心仪的美女聊天"
+    data-en="💬 Click WhatsApp button to chat with your favorite lady"
+    data-ms="💬 Klik butang WhatsApp untuk berbual dengan wanita pilihan anda">
+    💬 点击WhatsApp按钮和你心仪的美女聊天
   </button>
 
   <div class="card-list">
-    <!-- 第一张图片 -->
     <div class="friend-card">
       <div class="card-img-container">
-        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/330974a078024e7a987a8eb2e18675a4.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=P0%2FTEMw9NJNUQAGtyLJ6AEpJB%2B8%3D" class="card-img" alt="Chloe">
+        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/330974a078024e7a987a8eb2e18675a4.jpg" class="card-img">
       </div>
       <div class="card-body">
         <div class="name-row">
           <div class="name">Chloe Tan</div>
-          <div class="status">🟢 在线</div>
+          <div class="status" data-zh="🟢 在线" data-en="🟢 Online" data-ms="🟢 Dalam talian">🟢 在线</div>
         </div>
-        <div class="location">📍 吉隆坡</div>
+        <div class="location" data-zh="📍 吉隆坡" data-en="📍 Kuala Lumpur" data-ms="📍 Kuala Lumpur">📍 吉隆坡</div>
         <div class="tags">
-          <span class="tag">🧘 瑜伽</span>
-          <span class="tag">🍰 烘焙</span>
-          <span class="tag">✈️ 旅行</span>
+          <span class="tag" data-zh="🧘 瑜伽" data-en="🧘 Yoga" data-ms="🧘 Yoga">🧘 瑜伽</span>
+          <span class="tag" data-zh="🍰 烘焙" data-en="🍰 Baking" data-ms="🍰 Pembakaran">🍰 烘焙</span>
+          <span class="tag" data-zh="✈️ 旅行" data-en="✈️ Travel" data-ms="✈️ Perjalanan">✈️ 旅行</span>
         </div>
       </div>
     </div>
 
-    <!-- 第二张图片 -->
     <div class="friend-card">
       <div class="card-img-container">
-        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/ef9c7d93549f46f6b0cec8f84754327d.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=tOqmxHaCQXIS5%2BeYoROve8TM11w%3D" class="card-img" alt="Iris">
+        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/ef9c7d93549f46f6b0cec8f84754327d.jpg" class="card-img">
       </div>
       <div class="card-body">
         <div class="name-row">
           <div class="name">Iris Lee</div>
-          <div class="status">🟢 在线</div>
+          <div class="status" data-zh="🟢 在线" data-en="🟢 Online" data-ms="🟢 Dalam talian">🟢 在线</div>
         </div>
-        <div class="location">📍 槟城</div>
+        <div class="location" data-zh="📍 槟城" data-en="📍 Penang" data-ms="📍 Pulau Pinang">📍 槟城</div>
         <div class="tags">
-          <span class="tag">💄 美妆</span>
-          <span class="tag">🎬 电影</span>
-          <span class="tag">🍜 美食</span>
+          <span class="tag" data-zh="💄 美妆" data-en="💄 Beauty" data-ms="💄 Kecantikan">💄 美妆</span>
+          <span class="tag" data-zh="🎬 电影" data-en="🎬 Movies" data-ms="🎬 Filem">🎬 电影</span>
+          <span class="tag" data-zh="🍜 美食" data-en="🍜 Food" data-ms="🍜 Makanan">🍜 美食</span>
         </div>
       </div>
     </div>
 
-    <!-- 第三张图片 -->
     <div class="friend-card">
       <div class="card-img-container">
-        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/70630e76ac99474c931eb6d4e41cf408.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=CfUWbhzwXS22c6N8VfTxZmOODCg%3D" class="card-img" alt="Sophia">
+        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/70630e76ac99474c931eb6d4e41cf408.jpg" class="card-img">
       </div>
       <div class="card-body">
         <div class="name-row">
           <div class="name">Sophia Ng</div>
-          <div class="status">⏳ 30分钟前在线</div>
+          <div class="status" data-zh="⏳ 30分钟前在线" data-en="⏳ Online 30 mins ago" data-ms="⏳ 30 minit lepas">⏳ 30分钟前在线</div>
         </div>
-        <div class="location">📍 柔佛</div>
+        <div class="location" data-zh="📍 柔佛" data-en="📍 Johor" data-ms="📍 Johor">📍 柔佛</div>
         <div class="tags">
-          <span class="tag">📚 阅读</span>
-          <span class="tag">🎵 音乐</span>
-          <span class="tag">☕ 咖啡</span>
+          <span class="tag" data-zh="📚 阅读" data-en="📚 Reading" data-ms="📚 Membaca">📚 阅读</span>
+          <span class="tag" data-zh="🎵 音乐" data-en="🎵 Music" data-ms="🎵 Muzik">🎵 音乐</span>
+          <span class="tag" data-zh="☕ 咖啡" data-en="☕ Coffee" data-ms="☕ Kopi">☕ 咖啡</span>
         </div>
       </div>
     </div>
 
-    <!-- 第四张图片 -->
     <div class="friend-card">
       <div class="card-img-container">
-        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/88bb76e3304f415184d0b96959741314.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260415131026AA52BAE6E6C017BDD55D&rrcfp=8a172a1a&x-expires=1776834626&x-signature=lSeDxcZw%2BctTYHKZqipWG%2BZV3bM%3D" class="card-img" alt="Emma">
+        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/88bb76e3304f415184d0b96959741314.jpg" class="card-img">
       </div>
       <div class="card-body">
         <div class="name-row">
           <div class="name">Emma Lim</div>
-          <div class="status">🟢 在线</div>
+          <div class="status" data-zh="🟢 在线" data-en="🟢 Online" data-ms="🟢 Dalam talian">🟢 在线</div>
         </div>
-        <div class="location">📍 马六甲</div>
+        <div class="location" data-zh="📍 马六甲" data-en="📍 Malacca" data-ms="📍 Melaka">📍 马六甲</div>
         <div class="tags">
-          <span class="tag">💃 舞蹈</span>
-          <span class="tag">🎨 绘画</span>
-          <span class="tag">🥾 徒步</span>
+          <span class="tag" data-zh="💃 舞蹈" data-en="💃 Dance" data-ms="💃 Tarian">💃 舞蹈</span>
+          <span class="tag" data-zh="🎨 绘画" data-en="🎨 Painting" data-ms="🎨 Melukis">🎨 绘画</span>
+          <span class="tag" data-zh="🥾 徒步" data-en="🥾 Hiking" data-ms="🥾 Mendaki">🥾 徒步</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<footer>
+<footer 
+  data-zh="© 2025 MY Friends - 马来西亚女士交友平台" 
+  data-en="© 2025 MY Friends - Malaysia Ladies Dating Platform" 
+  data-ms="© 2025 MY Friends - Platform Temu Janji Wanita Malaysia">
   © 2025 MY Friends - 马来西亚女士交友平台
 </footer>
 
 <script>
-// 1. 配置需要轮询的WhatsApp号码列表（仅保留你指定的11个号码）
+// 语言切换
+const langElements = document.querySelectorAll('[data-zh],[data-en],[data-ms]');
+const langBtns = document.querySelectorAll('.lang-btn');
+let currentLang = 'zh';
+
+function switchLanguage(lang) {
+  currentLang = lang;
+  langElements.forEach(el => {
+    el.textContent = el.getAttribute(`data-${lang}`);
+  });
+  langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+}
+
+langBtns.forEach(btn => btn.addEventListener('click', () => switchLanguage(btn.dataset.lang)));
+
+// ===================== 这里是你最新的 9 个号码 =====================
 const wsNumbers = [
+  "60149035201",
+  "60162370538",
+  "60143631938",
   "60146341778",
   "60169325905",
-  "60146053604",
-  "60143631938",
-  "60162723948",
-  "60162370538",
-  "60149035201",
+  "60168034468",
   "60189157509",
   "60189157067",
   "60165849638"
 ];
+// ================================================================
 
-// 2. 随机获取一个WS号码的函数
 function getRandomWsNumber() {
-  const randomIndex = Math.floor(Math.random() * wsNumbers.length);
-  return wsNumbers[randomIndex];
+  return wsNumbers[Math.floor(Math.random() * wsNumbers.length)];
 }
 
-// 3. 点击按钮打开随机WS号码 + 自动带入进线语“你好”
 function openWhatsApp() {
-  const randomNumber = getRandomWsNumber();
-  const wsUrl = `https://wa.me/${randomNumber}?text=你好`;
-  window.open(wsUrl, "_blank");
+  const num = getRandomWsNumber();
+  let greet = "你好";
+  if (currentLang === "en") greet = "Hello";
+  if (currentLang === "ms") greet = "Halo";
+  window.open(`https://wa.me/${num}?text=${encodeURIComponent(greet)}`, "_blank");
 }
 
-// 4. 绑定按钮点击事件
 document.getElementById("whatsappMainBtn").onclick = openWhatsApp;
 </script>
-
 </body>
 </html>
