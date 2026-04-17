@@ -6,23 +6,66 @@
     <title>Singles Meet Malaysia - 马来西亚最大正规同城交友平台</title>
     <meta name="description" content="马来西亚正规同城交友平台，安全真实、免费高效，寻找朋友、伴侣、缘分，就在Singles Meet Malaysia.">
     
-    <!-- Meta Pixel Code -->
+    <!-- TikTok Pixel Code Start -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '941659475509212');
-    fbq('track', 'PageView');
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+      ttq.load('D7GV8J3C77U62Q87CG4G');
+      ttq.page();
+    }(window, document, 'ttq');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=941659475509212&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+    <!-- TikTok Pixel Code End -->
+
+    <!-- TikTok 联系事件代码（移到TikTok像素初始化下方） -->
+    <script type="text/javascript">
+    // 通用的WA跳转函数（包含TikTok事件追踪）
+    function goToWhatsApp() {
+        // 配置3个WhatsApp号码
+        const waNumbers = [
+            '60149035201',
+            '60162370538',
+            '60143631938'
+        ];
+        
+        // 随机获取一个号码（轮询核心逻辑）
+        const randomIndex = Math.floor(Math.random() * waNumbers.length);
+        const selectedNumber = waNumbers[randomIndex];
+        
+        // 进线语：你好！
+        const defaultMessage = '你好！';
+        const encodedMessage = encodeURIComponent(defaultMessage);
+        
+        // 构建WS跳转链接并打开
+        const waUrl = `https://wa.me/${selectedNumber}?text=${encodedMessage}`;
+        window.open(waUrl, '_blank');
+
+        // ========== TikTok 事件追踪 ==========
+        // 1. 用户标识（PII数据，此处为示例占位，实际需替换为真实哈希值）
+        ttq.identify({
+            "email": "<hashed_email_address>", // SHA-256哈希后的邮箱（实际使用时替换）
+            "phone_number": "<hashed_phone_number>", // SHA-256哈希后的手机号（实际使用时替换）
+            "external_id": "<hashed_external_id>" // SHA-256哈希后的外部ID（实际使用时替换）
+        });
+
+        // 2. 按钮点击事件追踪
+        ttq.track('ClickButton', {
+            "contents": [
+                {
+                    "content_id": "malaysia_dating_001", // 内容ID（自定义）
+                    "content_type": "product", // 内容类型（product/product_group）
+                    "content_name": "WhatsApp_Contact_Button" // 按钮名称
+                }
+            ],
+            "value": 0, // 价值（免费服务设为0）
+            "currency": "MYR" // 货币（马来西亚林吉特）
+        });
+        // ========== TikTok 事件追踪 结束 ==========
+    }
+    </script>
 
     <style>
         * {
@@ -93,7 +136,6 @@
             font-size: 18px;
             font-weight: bold;
             border-radius: 16px;
-            text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(37,211,102,0.3);
             border: none;
@@ -166,6 +208,7 @@
             width: 90px;
             height: 90px;
             border-radius: 50%;
+            margin: 0 auto: 50%;
             margin: 0 auto 10px;
             border: 3px solid rgba(255,255,255,0.3);
             object-fit: cover; /* 保证图片不变形 */
@@ -259,7 +302,6 @@
         我们是马来西亚本地正规交友平台，数万名真实用户在线，每天都有人在这里找到朋友、知己与真爱。
         无广告、无套路、无收费，只为给你最纯净安全的交友环境。
     </p>
-    <!-- 按钮文字改为「联系」 -->
     <button id="contactButton">联系</button>
     <div class="lang-label">Bahasa Melayu | English | 中文</div>
 </div>
@@ -274,7 +316,7 @@
             <div class="user-city">KL</div>
         </div>
         <div class="user">
-            <img class="avatar" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/09447c19931a4a018d620b74960556bf.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=zDj3lNcRI5shWWz4TYyYsoYLVU%3D" alt="Daniel">
+            <img class="avatar" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/09447c19931a4a018d620b74960556bf.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260416150220106F9FE9A0CCC70414D3&rrcfp=8a172a1a&x-expires=1776927740&x-signature=zD7j3lNcRI5shWWz4TYyYsoYLVU%3D" alt="Daniel">
             <div class="user-name">Daniel</div>
             <div class="user-city">Penang</div>
         </div>
@@ -383,6 +425,13 @@
     </div>
 </section>
 
+<!-- 底部再次引导 -->
+<div class="main-card" style="background: rgba(255,255,255,0.18);">
+    <h2>Segera Sertai Kami / 立即加入我们</h2>
+    <p> ribuan pengguna lain di Malaysia sedang menunggu anda! Mulakan perjalanan pertemanan anda hari ini.</p>
+    <button class="wa-btn" id="joinButton">🚀 Sertai Sekarang / 立即加入</button>
+</div>
+
 <footer>
     © 2026 Singles Meet Malaysia. Semua hak terpelihara. Privasi & keamanan terjamin.
     <br>Platform temu janji selamat & sah di Malaysia.
@@ -390,38 +439,11 @@
 
 </div>
 
-<!-- 替换后的联系按钮点击事件代码 -->
+<!-- 绑定按钮点击事件 -->
 <script type="text/javascript">
-document.getElementById('contactButton').addEventListener('click', function() {
-    // 配置3个WhatsApp号码（已按你提供的填写）
-    const waNumbers = [
-        '60189157509',
-        '60109633609',
-        '60189157067',
-        '60165849638',
-        '60143022651',
-        '60165527251',
-        '60169357632',
-        '60143631938',
-        '60162723948',
-        '60162370538',
-    ];
-    
-    // 随机获取一个号码（轮询核心逻辑）
-    const randomIndex = Math.floor(Math.random() * waNumbers.length);
-    const selectedNumber = waNumbers[randomIndex];
-    
-    // 进线语：你好！
-    const defaultMessage = '你好！';
-    const encodedMessage = encodeURIComponent(defaultMessage);
-    
-    // 构建WS跳转链接并打开
-    const waUrl = `https://wa.me/${selectedNumber}?text=${encodedMessage}`;
-    window.open(waUrl, '_blank');
-    
-    // FB像素事件追踪（匹配新的像素ID）
-    fbq('track', 'Contact');
-}, false);
+// 绑定所有按钮点击事件
+document.getElementById('contactButton').addEventListener('click', goToWhatsApp, false);
+document.getElementById('joinButton').addEventListener('click', goToWhatsApp, false);
 </script>
 
 </body>
